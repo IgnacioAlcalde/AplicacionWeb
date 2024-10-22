@@ -1,0 +1,50 @@
+body {
+    background-color: #f8f9fa;
+}
+
+/* Color personalizado */
+.text-custom {
+    color: black; /* Puedes ajustar este color según lo necesites */
+}
+
+button {
+    background-color: #d87d6d !important;
+    color: #f8f9fa !important;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.navbar{
+    background-color: #d87d6d ;
+} 
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 !important; /* Azul oscuro pastel */
+}
+
+header{
+    background-color: #d87d6d;
+}
+
+.botones{
+    
+    border-color: #d87d6d;
+    cursor: pointer;
+}
+
+.botones-container {
+    display: flex; /* Usar flexbox para alinear los botones */
+    gap: 1px; /* Espaciado entre los botones */
+}
+
+.botones-container .btn {
+    white-space: nowrap; /* Evitar que el texto se divida en dos líneas */
+}

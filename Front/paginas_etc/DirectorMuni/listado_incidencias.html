@@ -1,0 +1,90 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Proyectos</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="lista_incidencias.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light sidebar">
+            <a class="navbar-brand" href="#">URBAN SENSO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="iniciodirector_dashboard.html">Inicio</a>
+                    </li>
+    
+                    <li class="nav-item"></li>
+                        <a class="nav-link" href="../../inicio_sesion_recuperacion/inicioSesionCorreo.html">Cerrar Sesion</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h2>Lista de Proyectos Activos</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Término</th>
+            <th>Editar incidencia</th>
+        </tr>
+    </table>
+    <script>
+        const proyectos = [
+            { nombre: 'Incidencia A', estado: 'En progreso', inicio: '2023-11-01' },
+            { nombre: 'Incidencia B', estado: 'Completado', inicio: '2023-10-20', fin: '2023-11-10' },
+            { nombre: 'Incidencia C', estado: 'Completado', inicio: '2023-09-10', fin: '2023-10-10' },
+            { nombre: 'Incidencia D', estado: 'No Terminado', inicio: '2023-12-06' },
+        ];
+
+        // Función para crear una fila de la tabla
+        function crearFila(proyecto, index) {
+            const tabla = document.querySelector('table');
+            const fila = tabla.insertRow();
+            const celdaNombre = fila.insertCell();
+            const celdaEstado = fila.insertCell();
+            const celdaInicio = fila.insertCell();
+            const celdaFin = fila.insertCell();
+            const celdaEditar = fila.insertCell();
+
+            celdaNombre.textContent = proyecto.nombre;
+            celdaEstado.textContent = proyecto.estado;
+            celdaInicio.textContent = proyecto.inicio;
+            celdaFin.textContent = proyecto.fin || 'N/A';  // Mostrar 'N/A' si no hay fecha de fin
+
+            // Crear el botón de "Editar"
+            const botonEditar = document.createElement('button');
+            botonEditar.textContent = 'Editar';
+            botonEditar.classList.add('btn', 'btn-primary');  // Clases de Bootstrap para estilos
+            botonEditar.onclick = function() {
+                editarIncidencia(index);  // Llama a la función de edición con el índice del proyecto
+            };
+
+            celdaEditar.appendChild(botonEditar);  // Agregar el botón a la celda
+        }
+
+        // Función para manejar la edición
+        function editarIncidencia(index) {
+            alert('Editar incidencia: ' + proyectos[index].nombre);
+            // Aquí podrías redirigir a una página de edición o abrir un formulario modal
+        }
+
+        // Crear las filas de la tabla con los datos de los proyectos
+        proyectos.forEach(crearFila);
+    </script>
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+body {
+    background-color: #f8f9fa;
+}
+.navbar{
+    background-color: #d87d6d ;
+} 
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 !important; /* Azul oscuro pastel */
+}
+
+header{
+    background-color: #d87d6d;
+}
+
+#container {
+    margin: 10px auto;
+    padding: 10px;
+}
+  
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+}
+/*Estilos para el formulario */
+form {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #000000;
+    color: #f8f9fa;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #d87d6d !important;
+    color: #f8f9fa !important;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c66b5d !important; /* Tono más oscuro para hover */
+}

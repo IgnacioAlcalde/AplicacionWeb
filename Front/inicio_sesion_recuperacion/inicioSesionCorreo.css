@@ -1,0 +1,102 @@
+body {
+    background-color:rgba(159, 155, 155, 0.953);   /*#d87d6d*/
+}
+
+/* Estilos para la barra de navegación superior */
+.navbar{
+    background-color: #d87d6d ;
+} 
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 ; 
+}
+.nav-link:hover {
+    background-color: #db624d; 
+    color: white ;
+}
+
+button{
+    background-color: #d87d6d !important;  /* Aseguramos que el color se aplique con !important */
+    border-color: #d87d6d !important;
+}
+
+header{
+    background-color: #d87d6d;
+}
+
+.caja{
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    padding-left: 10px; 
+    padding-right: 10px;
+
+}
+
+.rut_mensaje{
+    text-decoration: underline;
+
+}
+
+.mensaje{
+    color: red;
+    
+}
+.contenido_pequeño {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+.contenido_pequeño input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.inicio_sesion {
+    background-color: #108ee8;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+.inicio_sesion:hover{
+    background-color: blue;
+    color: #f4efef;
+    text-decoration: none;
+}
+
+/* Mostrar el modal cuando se accede al ID "loginModal" */
+
+.olv {
+    margin-top: 10px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.olv:hover {
+    background-color: rgb(184, 6, 6);
+    text-decoration: none;
+    color: #ccc;
+}
+
+.boton_iniciar{
+    border: 0;
+    padding: 12px;
+}

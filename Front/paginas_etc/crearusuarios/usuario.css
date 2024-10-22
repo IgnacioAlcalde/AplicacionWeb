@@ -1,0 +1,78 @@
+.navbar{
+    background-color: #d87d6d ;
+} 
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 ; 
+}
+
+.container {
+    max-width: 80%;
+    margin: auto;
+    padding: 2%; 
+}
+
+/* Mayor especificidad para sobrescribir los estilos predeterminados de Bootstrap */
+.btn-primary {
+    background-color: #d87d6d !important;  /* Aseguramos que el color se aplique con !important */
+    border-color: #d87d6d !important;
+}
+
+.btn-secondary {
+    background-color: #d87d6d !important;  /* Aseguramos que el color se aplique con !important */
+    border-color: #d87d6d !important;
+}
+
+.btn-danger {
+    background-color: #d87d6d !important;  /* Aseguramos que el color se aplique con !important */
+    border-color: #d87d6d !important;
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%; 
+        padding: 5%; 
+    }
+
+    .form-group {
+        margin-bottom: 5%; 
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        padding: 3%; 
+    }
+}
+
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        max-width: 90%; 
+    }
+
+    .form-group {
+        margin-bottom: 4%;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        padding: 3%; 
+    }
+}
+
+
+@media (min-width: 769px) {
+    .container {
+        max-width: 70%; 
+    }
+
+    .form-group {
+        margin-bottom: 3%; 
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        padding: 2.5%; 
+    }
+}

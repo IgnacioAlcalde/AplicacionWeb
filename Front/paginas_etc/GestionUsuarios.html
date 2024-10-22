@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Servicios</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="styles_gestionusuario.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light sidebar">
+            <a class="navbar-brand" href="#">URBAN SENSO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../inicioadmin_dashboard.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestión de usuario</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        
+
+        <!-- Contenedor para los botones -->
+        <div class="d-flex justify-content-center align-items-center full-height" >
+            <div class="text-center">
+                <h1>Opciones</h1>
+                <button class="btn btn-primary mb-3" type="button" onclick="window.location.href='listausuarios/Listausuarios1.html';">Listado de Usuarios</button><br>
+                <button class="btn btn-secondary mb-3" type="button" onclick="window.location.href='crearusuarios/CreacionUser.html';">Crear Usuario</button><br>
+                <button class="btn btn-success" type="button" onclick="window.location.href='cargamasiva/ExportacioneImportacion.html';">Carga de Usuarios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace a jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

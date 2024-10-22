@@ -1,0 +1,30 @@
+/* Estilos generales */
+
+body {
+    background-color:rgb(255, 255, 255);   /*#d87d6d*/
+}
+
+/* Estilos para la barra de navegación superior */
+
+.navbar{
+    background-color: #d87d6d ;
+} 
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 !important; /* Azul oscuro pastel */
+}
+.nav-link:hover {
+    background-color: #db624d; /* Azul pastel más oscuro */
+    color: white !important;
+}
+
+
+
+header{
+    background-color: #d87d6d;
+}
+
+.full-height {
+    height: 100vh;
+}

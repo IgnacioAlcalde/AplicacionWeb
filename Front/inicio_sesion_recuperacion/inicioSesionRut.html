@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Servicios</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="inicioSesionRut.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light sidebar">
+            <a class="navbar-brand" href="#">URBAN SENSO</a>
+        </nav>
+    </header>
+    <div class="caja">
+        <div class="contenido_pequeño">
+            <h3>Inicio de sesión</h3>
+            <form>
+                <label for="rut" >Rut<label>
+                <input type="rut" id="rut" placeholder="12345678-9" required >
+                <p class="mensaje">Rut  o contraseña ingresada no es correcto</p>
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="Contraseña" >
+
+                <a href="../inicioadmin_dashboard.html" class="inicio_sesion">Iniciar sesión</a>
+                <center><a href="inicioSesionCorreo.html" class="rut_mensaje">Ingresar con el correo</a></center>
+            </form>
+            <a href="olvide_contraseña.html" class="olv">Olvide mi contraseña</a>
+        </div>
+    </div>
+</body>
+</html>

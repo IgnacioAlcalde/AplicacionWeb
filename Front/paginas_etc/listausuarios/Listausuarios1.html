@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Servicios</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Enlace a tu archivo CSS externo -->
+    <link rel="stylesheet" href="stylesurban1.css">
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light sidebar">
+                <a class="navbar-brand" href="#">URBAN SENSO</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../../inicioadmin_dashboard.html">Inicio</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </nav>
+        </header>
+
+        <div class="container-fluid"></div>
+            <nav class="col-md-2 bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <h4 class="sidebar-heading">Opciones</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <button class="btn btn-primary w-100" type="button" onclick="window.location.href='busqueda/FiltrosyCampos.html';">Buscar</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Tabla de empleados -->
+        <div id="employeeTable">
+            <h3>Lista de Empleados</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo Electrónico</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan</td>
+                        <td>Pérez</td>
+                        <td>juan.perez@ejemplo.com</td>
+                        <td>Administrador</td>
+                        <td>Activo</td>
+                    </tr>
+                    <tr>
+                        <td>María</td>
+                        <td>López</td>
+                        <td>maria.lopez@ejemplo.com</td>
+                        <td>Soporte</td>
+                        <td>Inactivo</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos</td>
+                        <td>González</td>
+                        <td>carlos.gonzalez@ejemplo.com</td>
+                        <td>Usuario</td>
+                        <td>Activo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Enlace a jQuery y Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </body>
+
+
+</head>
+</html>
