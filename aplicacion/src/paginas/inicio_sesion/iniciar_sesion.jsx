@@ -1,0 +1,99 @@
+import React, { useState } from 'react';
+import './iniciar_sesion.css';
+import { FaUser } from "react-icons/fa";
+import { MdOutlinePassword } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
+
+export default function IniciarSesion() {
+    const [correo, setCorreo] = useState('');
+    const [clave, setClave] = useState('');
+
+    // Definición de usuarios con roles
+    const usuarios = [
+        {
+            correo: 'dire_muni@correo.com',
+            clave: 'dire_muni',
+            rol: 'directorMunicipal'
+        },
+        {
+            correo: 'dire_obra@correo.com',
+            clave: 'dire_obra',
+            rol: 'directorObra'
+        },
+        {
+            correo: 'gestor@correo.com',
+            clave: 'gestor',
+            rol: 'gestorTerritorial'
+        },
+        {
+            correo: 'cuadrillas@correo.com',
+            clave: 'cuadrillas',
+            rol: 'cuadrillas'
+        }
+    ];
+
+    const navigate = useNavigate();
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const usuario = usuarios.find(usuario => usuario.correo === correo && usuario.clave === clave);
+
+        if (usuario) {
+            localStorage.setItem('rol', usuario.rol);
+            switch (usuario.rol) {
+                case 'directorMunicipal':
+                    navigate('/directormunicipaldashboard');
+                    break;
+                case 'directorObra':
+                    navigate('/directorobradashboard');
+                    break;
+                case 'gestorTerritorial':
+                    navigate('/gestordashboard');
+                    break;
+                case 'cuadrillas':
+                    navigate('/cuadrillasdashboard');
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            alert('Credenciales Invalidas');
+        }
+    };
+
+    return (
+        <div className="caja">
+            <div className="contenido_pequeño">
+                <h3>Inicio de sesión</h3>
+                <form onSubmit={handleLogin}>
+                    <div className="InputUsuario">
+                        <input
+                            type="email"
+                            placeholder="Correo electrónico"
+                            required
+                            value={correo}
+                            onChange={(e) => setCorreo(e.target.value)}
+                        />
+                        <FaUser className='iconousuario' />
+                    </div>
+                    <div className="InputUsuario">
+                        <input
+                            type="password"
+                            placeholder="Contraseña"
+                            required
+                            value={clave}
+                            onChange={(e) => setClave(e.target.value)}
+                        />
+                        <MdOutlinePassword className='iconocontra' />
+                    </div>
+                    <p className="mensaje">Correo o contraseña ingresada no es correcto</p>
+                    <button type="submit" className="boton_iniciar inicio_sesion">Iniciar sesión</button>
+                    <center>
+                        <a href="inicioSesionRut.html" className="rut_mensaje">Ingresar con rut</a>
+                    </center>
+                </form>
+                <a href="olvide_contraseña.html" className="olv">Olvidé mi contraseña</a>
+            </div>
+        </div>
+    );
+}
