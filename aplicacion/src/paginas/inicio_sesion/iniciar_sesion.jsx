@@ -42,16 +42,16 @@ export default function IniciarSesion() {
             localStorage.setItem('rol', usuario.rol);
             switch (usuario.rol) {
                 case 'directorMunicipal':
-                    navigate('/directormunicipaldashboard');
+                    navigate('/director_muni_dashboard');
                     break;
                 case 'directorObra':
-                    navigate('/directorobradashboard');
+                    navigate('/director_obra_dashboard');
                     break;
                 case 'gestorTerritorial':
-                    navigate('/gestordashboard');
+                    navigate('/gestor_dashboard');
                     break;
                 case 'cuadrillas':
-                    navigate('/cuadrillasdashboard');
+                    navigate('/cuadrilla_dashboard');
                     break;
                 default:
                     break;
@@ -64,6 +64,7 @@ export default function IniciarSesion() {
     return (
         <div className="caja">
             <div className="contenido_pequeño">
+                <h1>Bienvenido</h1>
                 <h3>Inicio de sesión</h3>
                 <form onSubmit={handleLogin}>
                     <div className="InputUsuario">
@@ -86,7 +87,6 @@ export default function IniciarSesion() {
                         />
                         <MdOutlinePassword className='iconocontra' />
                     </div>
-                    <p className="mensaje">Correo o contraseña ingresada no es correcto</p>
                     <button type="submit" className="boton_iniciar inicio_sesion">Iniciar sesión</button>
                     <center>
                         <a href="inicioSesionRut.html" className="rut_mensaje">Ingresar con rut</a>

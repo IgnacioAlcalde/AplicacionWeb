@@ -1,1 +1,62 @@
-setting.py
+settings.py
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Entornos virtuales (modifica el nombre de la carpeta según tu caso)
+env/
+venv/
+.DS_Store
+*.egg-info/
+
+# Configuración de IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de sistema (MacOS, Windows)
+*.DS_Store
+Thumbs.db
+
+# Archivos de bases de datos locales
+db.sqlite3
+*.db
+
+# Archivos de migraciones de Django (opcional, solo si los generas en cada entorno)
+**/migrations/*
+
+# Configuración de Django secret keys o variables sensibles
+.env
+*.env
+
+# Archivos estáticos generados automáticamente
+staticfiles/
+static/
+media/
+
+# Archivos compilados (opcional, si usas archivos JS/CSS compilados o empaquetados)
+node_modules/
+*.log
+*.lock
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+coverage/
+
+# Logs de Django
+logs/
+*.log
+
+# Archivos de pytest o pruebas
+htmlcov/
+.tox/
+.pytest_cache/
+.coverage
+test-results.xml
+nosetests.xml
+
+# Documentación
+docs/_build/
