@@ -95,3 +95,10 @@
 .Contenido h1{
     text-align: center;
 }
+.cajas { /* adentro de cajas va todo el contenido  */
+    color: black;
+    background: white;
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
