@@ -42,16 +42,16 @@ export default function IniciarSesion() {
             localStorage.setItem('rol', usuario.rol);
             switch (usuario.rol) {
                 case 'directorMunicipal':
-                    navigate('/director_muni_dashboard');
+                    navigate('/director-municipalidad/inicio');
                     break;
                 case 'directorObra':
-                    navigate('/director_obra_dashboard');
+                    navigate('/director-obra/inicio');
                     break;
                 case 'gestorTerritorial':
-                    navigate('/gestor_dashboard');
+                    navigate('/gestor-territorial/inicio');
                     break;
                 case 'cuadrillas':
-                    navigate('/cuadrilla_dashboard');
+                    navigate('/cuadrilla/inicio');
                     break;
                 default:
                     break;
@@ -63,6 +63,7 @@ export default function IniciarSesion() {
 
     return (
         <div className="caja">
+        
             <div className="contenido_pequeño">
                 <h1>Bienvenido</h1>
                 <h3>Inicio de sesión</h3>

@@ -8,18 +8,3 @@ body{
   font-style: italic;
   background:  #ccc;
 }
-
-
-/* Estilos para la barra de navegación superior */
-.navbar{
-  background-color: #d87d6d ;
-} 
-.navbar-brand, .nav-link {
-  margin-top: 1%;
-  margin-block-end: 1%;
-  color: #000000 ; 
-}
-.nav-link:hover {
-  background-color: #db624d; 
-  color: white ;
-}
