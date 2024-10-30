@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa;
+}
+.navbar{
+    background-color: #d87d6d ;
+} 
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 !important; /* Azul oscuro pastel */
+}
+
+header{
+    background-color: #d87d6d;
+}
+
+/* Estilos de interfaz documentacion */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td{
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {    /*Pares de filas con el color gris*/
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button {
+    background-color: #d87d6d !important;
+    color: #f8f9fa !important;
+}
