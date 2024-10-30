@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de Cuadrilla</title>
+    <link rel="stylesheet" href="gestort.css">
+  
+</head>
+<body>
+    <div class="container">
+        <button class="boton-retroceder" onclick="irAPagina()">volver :)</button>
+        <h1 class="letras-container">Asignación de Cuadrilla</h1>
+
+    </div>
+
+    <p class="parrafo-cuadrilla">Selecciona la cuadrilla que deseas asignar</p>
+
+    <form id="asignar-form">
+        <div class="form-group">
+            <label class="texto-cuadrilla" for="cuadrilla-select">Cuadrilla</label>
+            <select class="form-control" id="cuadrilla-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="texto-incidencia" for="incidencia-select">Incidencia</label>
+            <select class="form-control" id="incidencia-select">
+                <option value="Accidente">Accidente</option>
+                <option value="Árbol Caído">Árbol Caído</option>
+                <option value="Semáforo">Semáforo</option>
+                <option value="Robo">Robo</option>
+            </select>
+        </div>
+
+        <button type="submit" class="boton-asignar">Asignar</button>
+    </form>
+
+    
+    <table id="cuadrilla-table">
+        <thead>
+            <tr>
+                <th class="cuadrilla-th">Cuadrilla</th>
+                <th class="incidencia-th">Incidencia</th>
+            </tr>
+        </thead>
+        <tbody id="cuadrilla-tbody">
+        </tbody>
+    </table>
+
+    <script>
+        
+        function irAPagina() {
+            window.location.href = 'GestorTerrit1.html';
+         } 
+        
+        
+        document.getElementById('asignar-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+          
+            const cuadrilla = document.getElementById('cuadrilla-select').value;
+            const incidencia = document.getElementById('incidencia-select').value;
+
+            
+            const table = document.getElementById('cuadrilla-table');
+            const tbody = document.getElementById('cuadrilla-tbody');
+            const newRow = document.createElement('tr');
+            newRow.classList.add('table-row');
+            
+           
+            const cuadrillaCell = document.createElement('td');
+            cuadrillaCell.classList.add('cuadrilla-td');
+            const incidenciaCell = document.createElement('td');
+            incidenciaCell.classList.add('incidencia-td');
+
+            
+            cuadrillaCell.textContent = cuadrilla;
+            incidenciaCell.textContent = incidencia;
+
+            
+            newRow.appendChild(cuadrillaCell);
+            newRow.appendChild(incidenciaCell);
+
+            
+            tbody.appendChild(newRow);
+
+            
+            table.style.display = 'table';
+        });
+    </script>
+</body>
+</html>
