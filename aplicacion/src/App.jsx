@@ -9,22 +9,34 @@ import GestorTerritorial from './paginas/inicios/gestor_territorial.jsx';
 import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx";
 import InicioObras from "./componentes/director_obra/inicio.jsx";
 import InicioGestor from "./componentes/gestor_territorial/inicio.jsx";
+import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx";
+import InicioCuadrilla from "./componentes/cuadrilla/inicio.jsx";
+import Cuadrilla from "./paginas/inicios/cuadrilla.jsx";
 function Aplicacion() {
     return (
       <div className='Aplicacion'>
         <Router>
           <Routes>
+            
             <Route path="/" element={<IniciarSesionCorreo/>} />
             <Route path="inicio_sesion_rut" element={<IniciarSesionRut/>} />
+
             <Route path='director-municipalidad' element={<DirectorMunicipalidad/>}>
               <Route path="inicio" element={<InicioMunicipalidad />} />
             </Route>
+
             <Route path='director-obra' element={<DirectorObra/>}>
               <Route path="inicio" element={<InicioObras/>} />
             </Route>
+
             <Route path='gestor-territorial' element={<GestorTerritorial/>}>
               <Route path="inicio" element={<InicioGestor/>} />
             </Route>
+
+            <Route path='cuadrilla' element={<Cuadrilla/>}>
+              <Route path="inicio" element={<InicioCuadrilla/>} />
+            </Route>
+
           </Routes>
         </Router>
       </div>
