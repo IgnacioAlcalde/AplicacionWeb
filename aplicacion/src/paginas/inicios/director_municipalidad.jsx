@@ -3,7 +3,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../inicio.css';
 import logo_autonoma from "../logo_uautonoma.png";
 
-export default function DirectorMuniDashboard() {
+export default function Directormunicipalidad() {
   const navigate = useNavigate();
   const handleNavigate = () => navigate('/');
 
@@ -23,7 +23,7 @@ export default function DirectorMuniDashboard() {
             <li>
               <Link
                 to="inicio"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestordashboard/inicio') ? 'active' : ''}`}
+                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/inicio') ? 'active' : ''}`}
               >
                 <span className="icon">🏠</span>Inicio
               </Link>
@@ -31,7 +31,7 @@ export default function DirectorMuniDashboard() {
             <li>
               <Link
                 to="listado_incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestordashboard/listado_incidencias') ? 'active' : ''}`}
+                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/listado_incidencias') ? 'active' : ''}`}
               >
                 <span className="icon">📋</span>Listado de Incidencias
               </Link>
@@ -39,7 +39,7 @@ export default function DirectorMuniDashboard() {
             <li>
               <Link
                 to="formulario_para_editar"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestordashboard/formulario_para_editar') ? 'active' : ''}`}
+                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/formulario_para_editar') ? 'active' : ''}`}
               >
                 <span className="icon">✏️</span>Editar Incidencia
               </Link>
