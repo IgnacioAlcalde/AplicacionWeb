@@ -2,16 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import IniciarSesionCorreo from './paginas/inicio_sesion/iniciar_sesion_correo.jsx';
 import IniciarSesionRut from './paginas/inicio_sesion/iniciar_sesion_rut.jsx';
+// Inicio por rol
 import DirectorMunicipalidad from './paginas/inicios/director_municipalidad.jsx';
 import DirectorObra from './paginas/inicios/director_obras.jsx';
 import GestorTerritorial from './paginas/inicios/gestor_territorial.jsx';
+import Cuadrilla from "./paginas/inicios/cuadrilla.jsx";
 // Dashboard por rol
 import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx";
 import InicioObras from "./componentes/director_obra/inicio.jsx";
 import InicioGestor from "./componentes/gestor_territorial/inicio.jsx";
-import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx";
 import InicioCuadrilla from "./componentes/cuadrilla/inicio.jsx";
-import Cuadrilla from "./paginas/inicios/cuadrilla.jsx";
 function Aplicacion() {
     return (
       <div className='Aplicacion'>
