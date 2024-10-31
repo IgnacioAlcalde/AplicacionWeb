@@ -1,3 +1,5 @@
+//Creacion de jsx
+
 import React, { useState } from "react";
 import "./iniciar_sesion.css";
 import { FaUser } from "react-icons/fa";
