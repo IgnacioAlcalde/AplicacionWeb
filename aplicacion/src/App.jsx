@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import IniciarSesion from './paginas/inicio_sesion/iniciar_sesion.jsx'
-// Inicio de usuarios con roles
+import IniciarSesionCorreo from './paginas/inicio_sesion/iniciar_sesion_correo.jsx';
+import IniciarSesionRut from './paginas/inicio_sesion/iniciar_sesion_rut.jsx';
 import DirectorMunicipalidad from './paginas/inicios/director_municipalidad.jsx';
 import DirectorObra from './paginas/inicios/director_obras.jsx';
 import GestorTerritorial from './paginas/inicios/gestor_territorial.jsx';
@@ -14,7 +14,8 @@ function Aplicacion() {
       <div className='Aplicacion'>
         <Router>
           <Routes>
-            <Route path="/" element={<IniciarSesion/>} />
+            <Route path="/" element={<IniciarSesionCorreo/>} />
+            <Route path="inicio_sesion_rut" element={<IniciarSesionRut/>} />
             <Route path='director-municipalidad' element={<DirectorMunicipalidad/>}>
               <Route path="inicio" element={<InicioMunicipalidad />} />
             </Route>

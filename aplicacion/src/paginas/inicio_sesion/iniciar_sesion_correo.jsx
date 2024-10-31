@@ -4,7 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 
-export default function IniciarSesion() {
+export default function IniciarSesionCorreo() {
     const [correo, setCorreo] = useState('');
     const [clave, setClave] = useState('');
 
@@ -90,7 +90,9 @@ export default function IniciarSesion() {
                     </div>
                     <button type="submit" className="boton_iniciar inicio_sesion">Iniciar sesión</button>
                     <center>
-                        <a href="inicioSesionRut.html" className="rut_mensaje">Ingresar con rut</a>
+                    <span onClick={() => navigate('/inicio_sesion_rut')} className="rut_mensaje" style={{ cursor: 'pointer' }}>
+                     Ingresar con rut
+                    </span>
                     </center>
                 </form>
                 <a href="olvide_contraseña.html" className="olv">Olvidé mi contraseña</a>
