@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../inicio.css';
 import logo_autonoma from "../logo_uautonoma.png";
@@ -14,7 +15,7 @@ export default function CuadrilasDashboard() {
   <div className="Inicio">
         <div className="navbar">
           <img src={logo_autonoma} alt="logo" className='logo_autonoma' />
-          <h1>UrbanSenso</h1>
+          <h1 className=''>UrbanSenso</h1>
           <button onClick={handleNavigate} className="Logout text-black rounded py-1 w-10 d-inline-block px-4">Cerrar Sesión</button>
         </div>    
         <div className="lateral">
@@ -25,23 +26,15 @@ export default function CuadrilasDashboard() {
                   to="inicio"
                   className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/cuadrilla/inicio') ? 'active' : ''}`}
                 >
-                  <span className="icon">🏠</span>Inicio
+                  <span className="icon">🏠</span> Inicio
                 </Link>
               </li>
               <li>
                 <Link
-                  to="listado_incidencias"
-                  className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestordashboard/listado_incidencias') ? 'active' : ''}`}
+                  to="incidencias"
+                  className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/cuadrilla/incidencias') ? 'active' : ''}`}
                 >
-                  <span className="icon">📋</span>Listado de Incidencias
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="formulario_para_editar"
-                  className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestordashboard/formulario_para_editar') ? 'active' : ''}`}
-                >
-                  <span className="icon">✏️</span>Editar Incidencia
+                  <span className="icon">📋</span>Listado de Incidencias asignadas
                 </Link>
               </li>
             </ul>

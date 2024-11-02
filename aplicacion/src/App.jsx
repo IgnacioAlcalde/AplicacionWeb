@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // Inicio de sesion
 import IniciarSesionCorreo from "./paginas/inicio_sesion/iniciar_sesion_correo.jsx";
 import IniciarSesionRut from "./paginas/inicio_sesion/iniciar_sesion_rut.jsx";
@@ -17,6 +18,9 @@ import InicioGestor from "./componentes/gestor_territorial/inicio.jsx";
 // Componentes Cuadrilla
 import Cuadrilla from "./paginas/inicios/cuadrilla.jsx";
 import InicioCuadrilla from "./componentes/cuadrilla/inicio.jsx";
+import IncidenciasCuadrillas from "./componentes/cuadrilla/Incidencias.jsx";
+import TareasCuadrillas from "./componentes/cuadrilla/tareas/tareas.jsx";
+import DetallesTareasCuadrillas from "./componentes/cuadrilla/tareas/detalles.jsx";
 //---------------------------------------------------------------------------------------------
 function Aplicacion() {
   return (
@@ -46,9 +50,13 @@ function Aplicacion() {
             <Route path="inicio" element={<InicioGestor />} />
           </Route>
           {/* Enrutamiento cuadrillas */}
-          <Route path="cuadrilla" element={<Cuadrilla />}>
-            <Route path="inicio" element={<InicioCuadrilla />} />
-          </Route>
+          <Route path='cuadrilla' element={<Cuadrilla/>}>
+              <Route path="inicio" element={<InicioCuadrilla/>} />
+              <Route path='incidencias' element={<IncidenciasCuadrillas/>}/>
+              <Route path='tareas' element={<TareasCuadrillas/>}/>
+              <Route path='detalles' element={<DetallesTareasCuadrillas/>}/>
+
+            </Route>
         </Routes>
       </Router>
     </div>
