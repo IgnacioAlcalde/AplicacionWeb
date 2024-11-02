@@ -55,7 +55,6 @@ function Aplicacion() {
               <Route path='incidencias' element={<IncidenciasCuadrillas/>}/>
               <Route path='tareas' element={<TareasCuadrillas/>}/>
               <Route path='detalles' element={<DetallesTareasCuadrillas/>}/>
-
             </Route>
         </Routes>
       </Router>
