@@ -16,8 +16,10 @@ export default function tareas(){
                 <button className='btn btn-outline-dark fs-5 fw-bold mb-4 ms-3 px-4 ' onClick={() => window.history.back()}>ATRAS</button>
             </div>
             <div className="container-fluid ">
-                <div className='card card-body  d-flex flex-row justify-content-between mb-2'>
+                <div className='card card-body  d-flex flex-row justify-content-between mb-2 '>
                     <p className='display-6 text-black mx-5'>Tarea 1  </p>
+
+                    <p className='display-6 text-black mx-5'>Estado:  </p>
                     <div>
                         <button className='btn btn-success fs-3 me-3' >Subir evidencia</button>
                         <button className='btn btn-success fs-3 me-3' onClick={handleTareasClick}>Detalles</button>
