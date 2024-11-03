@@ -18,7 +18,7 @@ class Usuario(models.Model):
     correo = models.EmailField(unique=True, verbose_name="Correo Electrónico")
     contraseña = models.CharField(max_length=128, verbose_name="Contraseña")
     rol = models.ForeignKey(Rol, on_delete=models.SET_NULL, null=True, verbose_name="Rol")
-    first_session = models.CharField(max_length = 240,null=True, blank=True, default='Si')
+    first_session = models.CharField(max_length = 5, default='Si')
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de Actualización")
 
