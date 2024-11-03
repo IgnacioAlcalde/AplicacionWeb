@@ -57,7 +57,7 @@ button{
 }
 
 .olv:hover {
-    background-color: rgb(184, 6, 6);
+    background-color: #C44848;
     text-decoration: none;
     color: #ccc;
 }
@@ -68,7 +68,8 @@ button{
     margin-bottom: 10px;
 }
 .boton_iniciar:hover{
-    background-color: rgb(184, 6, 6);
+    background-color: #C44848;
+    color: black;
     border: 0;
     padding: 12px;
 }

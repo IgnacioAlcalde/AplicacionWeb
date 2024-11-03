@@ -15,9 +15,7 @@ export default function Directorobra() {
       <div className="navbar">
         <img src={logo_autonoma} alt="logo" className="logo_autonoma" />
         <h1>UrbanSenso</h1>
-        <button onClick={handleNavigate} className="Logout text-black rounded py-1 w-10 d-inline-block px-4">
-          Cerrar Sesión
-        </button>
+        <button onClick={handleNavigate} className="Logout">Cerrar Sesión</button>
       </div>
       
       <div className="lateral">
