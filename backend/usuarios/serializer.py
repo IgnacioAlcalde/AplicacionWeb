@@ -4,10 +4,9 @@ from .models import Usuario, Rol
 class RolSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rol
-        fields = ['nombre_rol']
+        fields = ['nombre']
 
 class UsuarioSerializer(serializers.ModelSerializer):
-    rol = RolSerializer()  # Para incluir el detalle del rol en la representación del usuario
 
     class Meta:
         model = Usuario
@@ -18,7 +17,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'fecha_nacimiento', 
             'run', 
             'correo', 
-            'contraseña', 
+            #'contraseña', 
             'rol', 
             'first_session', 
             'created', 
@@ -27,19 +26,18 @@ class UsuarioSerializer(serializers.ModelSerializer):
         read_only_fields = ['created', 'updated']  # Marcar como solo lectura si se necesita
 
     def create(self, validated_data):
-        # Extrae el rol de validated_data
-        rol_data = validated_data.pop('rol')
-        # Crea el rol si no existe
-        rol, created = Rol.objects.get_or_create(**rol_data)
-        # Crea el usuario y asigna el rol
-        usuario = Usuario.objects.create(rol=rol, **validated_data)
+        nombre = validated_data.pop('rol')  # Obtener el nombre del rol directamente
+        # Asignar el nombre del rol a la instancia de usuario
+        validated_data['rol'] = nombre  # Guardar el nombre del rol en lugar del objeto
+
+        # Crear el usuario
+        usuario = Usuario.objects.create(**validated_data)
         return usuario
 
     def update(self, instance, validated_data):
-        rol_data = validated_data.pop('rol', None)
-        if rol_data:
-            rol, created = Rol.objects.get_or_create(**rol_data)
-            instance.rol = rol
+        nombre = validated_data.pop('rol', None)
+        if nombre:
+            instance.rol = nombre  # Asigna directamente el nombre del rol
 
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
