@@ -1,0 +1,14 @@
+/* Estilos para botones de navegación */
+.btn-navegacion {
+    background-color: #d87d6d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cursor tipo puntero al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave para el color */
+}
+
+.btn-navegacion:hover {
+    background-color: #C44848 ; /* Color de fondo al pasar el mouse */
+}
