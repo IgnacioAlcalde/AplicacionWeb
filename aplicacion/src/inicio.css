@@ -32,6 +32,7 @@
 }
 .navbar .Logout:hover {
     background-color: #C44848;
+    color: black;
 }
 
 /* Otras clases */

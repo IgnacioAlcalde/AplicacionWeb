@@ -38,6 +38,8 @@ export default function CrearUsuarios() {
     try {
       const res = await createUsuarios(data);
       console.log(res);
+      setSuccessMessage("Usuario creado exitosamente!");
+      reset();
       // Redirigir o mostrar mensaje de éxito
     } catch (error) {
       console.error("Error al crear usuario:", error.response?.data || error.message);
@@ -138,9 +140,9 @@ export default function CrearUsuarios() {
           {errors.rol && <span className="text-danger">{errors.rol.message}</span>}
         </div>
         <div className="form-group mt-3">
-          <button type="submit" className="btn btn-primary">Guardar usuario</button>
-          <button type="button" className="btn btn-secondary mx-2" onClick={() => reset()}>Limpiar</button>
-          <button type="button" className="btn btn-danger" onClick={navegarInicio}>Cancelar</button>
+          <button type="submit" className="btn btn-navegacion">Guardar usuario</button>
+          <button type="button" className="btn btn-navegacion mx-2" onClick={() => reset()}>Limpiar</button>
+          <button type="button" className="btn btn-navegacion" onClick={navegarInicio}>Cancelar</button>
         </div>
       </form>
     </div>

@@ -1,6 +1,7 @@
 """
 INSTALAR: pip install django-cors-headers
 INSTALAR: pip install coreapi
+INSTALAR: pip install djongo
 
 Django settings for backend project.
 
@@ -91,8 +92,17 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     },
+    'mongo':{
+        'ENGINE': 'djongo',
+        'NAME': 'DesarrolloWeb',
+        'CLIENT': {
+            'host': '',
+            'username': '',
+            'password': '',
+        }
+    }
 }
-
+DATABASE_ROUTERS = ['backend.routers.MongoRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
