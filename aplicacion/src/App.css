@@ -49,11 +49,12 @@
 
 
 /* Estilos para la Barra lateral*/
-.Barralateral{
+.Barralateral {
     display: flex;
+    flex-direction: column; /* Asegura que los elementos se coloquen en columna */
     width: 16rem;
-    height: calc(96vh - 52px);
-    background:#d87d6d;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background: #d87d6d;
     border-right: 1px solid gray;
 }
 .Barralateral ul{
@@ -92,7 +93,6 @@
     width: 100%;
     padding: 1rem 2rem;
     color: #d87d6d;
-    border-bottom: 1px solid rgb(0, 0, 0);
 }
 .Contenido h1{
     text-align: center;

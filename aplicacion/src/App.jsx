@@ -12,9 +12,6 @@ import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx
 import CrearUsuarios from "./componentes/director_municipalidad/crear_usuarios.jsx";
 import ListaUsuariosMunicipalidad from './componentes/director_municipalidad/lista_usuarios.jsx';
 import CargaMasiva from './componentes/director_municipalidad/carga_masiva.jsx';
-import BuscarUsuarios from './componentes/director_municipalidad/buscar_usuarios.jsx';
-import ListadoIncidencias from './componentes/director_municipalidad/listado_incidencias.jsx';
-import EditarIncidencias from './componentes/director_municipalidad/editar_incidencias.jsx';
 // Componentes Director de obra
 import DirectorObra from "./paginas/inicios/director_obras.jsx";
 import InicioObras from "./componentes/director_obra/inicio.jsx";
@@ -27,6 +24,9 @@ import InicioCuadrilla from "./componentes/cuadrilla/inicio.jsx";
 import IncidenciasCuadrillas from "./componentes/cuadrilla/Incidencias.jsx";
 import TareasCuadrillas from "./componentes/cuadrilla/tareas/tareas.jsx";
 import DetallesTareasCuadrillas from "./componentes/cuadrilla/tareas/detalles.jsx";
+//General
+import ListaIncidencias from "./componentes/general/listado_incidencias.jsx";
+import EditarIncidencias from "./componentes/general/editar_incidencias.jsx"
 //---------------------------------------------------------------------------------------------
 function Aplicacion() {
   return (
@@ -46,13 +46,14 @@ function Aplicacion() {
             <Route path="crear-usuarios" element={<CrearUsuarios />} />
             <Route path='lista-usuarios' element={<ListaUsuariosMunicipalidad/>}/>
             <Route path='carga-masiva' element={<CargaMasiva/>}/>
-            <Route path="buscar-usuarios" element={<BuscarUsuarios />} />
-            <Route path="listado-incidencias" element={<ListadoIncidencias />} />
+            <Route path="listado-incidencias" element={<ListaIncidencias />} />
             <Route path="editar-incidencias" element={<EditarIncidencias/>} />
           </Route>
           {/* Enrutamiento director de obras */}
           <Route path="director-obra" element={<DirectorObra />}>
             <Route path="inicio" element={<InicioObras />} />
+            <Route path="listado-incidencias" element={<ListaIncidencias />} />
+            <Route path="editar-incidencias" element={<EditarIncidencias/>} />
           </Route>
           {/* Enrutamiento gestor territorial */}
           <Route path="gestor-territorial" element={<GestorTerritorial />}>

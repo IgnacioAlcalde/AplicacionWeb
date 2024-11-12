@@ -60,14 +60,6 @@ export default function Directormunicipalidad() {
                 <span className="icon">📋👤</span>Listado de usuarios
               </Link>
             </li>
-            <li>
-              <Link
-                to="buscar-usuarios"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/buscar-usuarios') ? 'active' : ''}`}
-              >
-                <span className="icon">📋👤</span>Buscar usuarios
-              </Link>
-            </li>
           </ul>
         </div>
         <div className="Contenido">

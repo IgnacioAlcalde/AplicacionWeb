@@ -31,16 +31,16 @@ export default function Directorobra() {
             </li>
             <li>
               <Link
-                to="listado_incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/listado_incidencias') ? 'active' : ''}`}
+                to="listado-incidencias"
+                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/listado-incidencias') ? 'active' : ''}`}
               >
                 <span className="icon">📋</span> Listado de Incidencias
               </Link>
             </li>
             <li>
               <Link
-                to="formulario_para_editar"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/formulario_para_editar') ? 'active' : ''}`}
+                to="editar-incidencias"
+                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/editar-incidencias') ? 'active' : ''}`}
               >
                 <span className="icon">✏️</span> Editar Incidencia
               </Link>

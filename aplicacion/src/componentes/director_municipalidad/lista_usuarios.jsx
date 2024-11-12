@@ -5,17 +5,20 @@ import { getAllUsuarios, getAllRoles } from '../../api/usuarios.api';
 
 export default function ListaUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
-    const [roles, setRoles] = useState([]); // Estado para almacenar los roles disponibles
-    const [filtroRol, setFiltroRol] = useState(''); // Estado para el rol seleccionado
-    const [usuariosFiltrados, setUsuariosFiltrados] = useState([]); // Estado para los usuarios filtrados
-    const [mostrarFiltro, setMostrarFiltro] = useState(false); // Estado para mostrar/ocultar el filtro
+    const [roles, setRoles] = useState([]);
+    const [filtroRol, setFiltroRol] = useState('');
+    const [filtroRun, setFiltroRun] = useState('');
+    const [filtroNombre, setFiltroNombre] = useState('');
+    const [filtroCorreo, setFiltroCorreo] = useState('');
+    const [usuariosFiltrados, setUsuariosFiltrados] = useState([]);
+    const [mostrarFiltro, setMostrarFiltro] = useState(false);
 
     useEffect(() => {
         async function loadUsuarios() {
             try {
                 const res = await getAllUsuarios();
                 setUsuarios(res.data);
-                setUsuariosFiltrados(res.data); // Inicialmente, muestra todos los usuarios
+                setUsuariosFiltrados(res.data);
             } catch (error) {
                 console.error('Error al cargar los usuarios:', error);
             }
@@ -24,7 +27,7 @@ export default function ListaUsuarios() {
         async function loadRoles() {
             try {
                 const res = await getAllRoles();
-                setRoles(res.data); // Cargar los roles desde la API
+                setRoles(res.data);
             } catch (error) {
                 console.error('Error al cargar los roles:', error);
             }
@@ -34,7 +37,6 @@ export default function ListaUsuarios() {
         loadRoles();
     }, []);
 
-    // Función para calcular la edad a partir de la fecha de nacimiento
     function calcularEdad(fechaNacimiento) {
         const fechaNacimientoDate = new Date(fechaNacimiento);
         const hoy = new Date();
@@ -48,19 +50,24 @@ export default function ListaUsuarios() {
         return edad;
     }
 
-    // Función para manejar el cambio en el filtro de rol
-    const handleFiltroRolChange = (event) => {
-        const selectedRol = event.target.value;
-        setFiltroRol(selectedRol);
+    // Función para aplicar filtros a los usuarios
+    const aplicarFiltros = () => {
+        let usuariosFiltrados = usuarios;
 
-        // Filtrar usuarios en base al rol seleccionado
-        if (selectedRol) {
-            const usuariosFiltrados = usuarios.filter(usuario => usuario.rol === selectedRol);
-            setUsuariosFiltrados(usuariosFiltrados);
-        } else {
-            // Si no se selecciona ningún rol, mostrar todos los usuarios
-            setUsuariosFiltrados(usuarios);
+        if (filtroRol) {
+            usuariosFiltrados = usuariosFiltrados.filter(usuario => usuario.rol === filtroRol);
         }
+        if (filtroRun) {
+            usuariosFiltrados = usuariosFiltrados.filter(usuario => usuario.run.includes(filtroRun));
+        }
+        if (filtroNombre) {
+            usuariosFiltrados = usuariosFiltrados.filter(usuario => usuario.nombre.toLowerCase().includes(filtroNombre.toLowerCase()));
+        }
+        if (filtroCorreo) {
+            usuariosFiltrados = usuariosFiltrados.filter(usuario => usuario.correo.toLowerCase().includes(filtroCorreo.toLowerCase()));
+        }
+
+        setUsuariosFiltrados(usuariosFiltrados);
     };
 
     return (
@@ -75,19 +82,59 @@ export default function ListaUsuarios() {
 
             {/* Sección de Filtro */}
             {mostrarFiltro && (
-                <div className="form-group">
-                    <label htmlFor="rol">Filtrar por Rol:</label>
-                    <select
-                        className="form-control"
-                        id="rol"
-                        value={filtroRol}
-                        onChange={handleFiltroRolChange}
-                    >
-                        <option value="">Todos</option>
-                        {roles.map((rol) => (
-                            <option key={rol.id} value={rol.nombre}>{rol.nombre}</option>
-                        ))}
-                    </select>
+                <div className="mb-3">
+                    <div className="form-group">
+                        <label htmlFor="rol">Filtrar por Rol:</label>
+                        <select
+                            className="form-control"
+                            id="rol"
+                            value={filtroRol}
+                            onChange={(e) => setFiltroRol(e.target.value)}
+                        >
+                            <option value="">Todos</option>
+                            {roles.map((rol) => (
+                                <option key={rol.id} value={rol.nombre}>{rol.nombre}</option>
+                            ))}
+                        </select>
+                    </div>
+                    
+                    <div className="form-group">
+                        <label htmlFor="run">Filtrar por RUN:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="run"
+                            value={filtroRun}
+                            onChange={(e) => setFiltroRun(e.target.value)}
+                            placeholder="Ingrese el RUN"
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="nombre">Filtrar por Nombre:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="nombre"
+                            value={filtroNombre}
+                            onChange={(e) => setFiltroNombre(e.target.value)}
+                            placeholder="Ingrese el Nombre"
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="correo">Filtrar por Correo:</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="correo"
+                            value={filtroCorreo}
+                            onChange={(e) => setFiltroCorreo(e.target.value)}
+                            placeholder="Ingrese el Correo"
+                        />
+                    </div>
+                    
+                    <button className="btn btn-primary mt-2" onClick={aplicarFiltros}>Aplicar Filtros</button>
                 </div>
             )}
 
