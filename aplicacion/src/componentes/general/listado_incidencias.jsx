@@ -34,12 +34,15 @@ export default function listado_incidencias() {
     useEffect(() => {
         // Este efecto podría utilizarse para cargar datos iniciales si es necesario
     }, []);
-
+// hay que conectarlo a backend para mejorarlo
     return (
         <div className='card card-body text-black'>
-            <h2 className="tituloh2">Lista de Proyectos Activos</h2>
+            <div className='d-flex justify-content-between align-items-center'>
+                <h2 className="tituloh2">Lista de Proyectos Activos</h2>
+                <button className='btn btn-navegacion'>Filtrar</button>
+            </div>
+            <hr/>
             <h4 className="titulofiltro">Filtrar</h4>
-
             <div className="filtro">
                 <input
                     type="text"
@@ -65,7 +68,7 @@ export default function listado_incidencias() {
                     onChange={(e) => setFiltroInicio(e.target.value)}
                 />
             </div>
-
+            <hr/>
             <table id="incidencia" className="table">
                 <thead>
                     <tr>

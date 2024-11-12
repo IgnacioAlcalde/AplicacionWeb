@@ -7,9 +7,6 @@ export default function Directorobra() {
   const navigate = useNavigate();
   const handleNavigate = () => navigate('/');
 
-  const location = useLocation();
-  const isActive = (path) => location.pathname === path;
-
   return (
     <div className="Inicio">
       <div className="navbar">
@@ -24,23 +21,25 @@ export default function Directorobra() {
             <li>
               <Link
                 to="inicio"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/inicio') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">🏠</span> Inicio
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="listado-incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/listado-incidencias') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">📋</span> Listado de Incidencias
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="editar-incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-obra/editar-incidencias') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">✏️</span> Editar Incidencia
               </Link>

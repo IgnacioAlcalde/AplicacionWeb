@@ -38,8 +38,9 @@ export default function listado_incidencias() {
     return (
         <div className='card card-body text-black'>
             <h2 className="tituloh2">Lista de Proyectos Activos</h2>
+            <hr/>
             <h4 className="titulofiltro">Filtrar</h4>
-
+            <hr/>
             <div className="filtro">
                 <input
                     type="text"

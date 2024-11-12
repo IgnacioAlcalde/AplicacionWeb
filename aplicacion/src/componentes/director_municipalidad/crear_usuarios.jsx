@@ -59,6 +59,7 @@ export default function CrearUsuarios() {
         <h2 className="card-title">Creación de usuarios</h2>
         <button className="btn btn-navegacion" onClick={navegarCargaMasiva}>Carga masiva</button>
       </div>
+      <hr/>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label htmlFor="nombre">Nombre:</label>

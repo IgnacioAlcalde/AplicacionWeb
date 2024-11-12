@@ -1,14 +1,11 @@
 import React from 'react';
-import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import '../../App.css';
 import logo_autonoma from "../logo_uautonoma.png";
 
 export default function Directormunicipalidad() {
   const navigate = useNavigate();
   const handleNavigate = () => navigate('/');
-
-  const location = useLocation();
-  const isActive = (path) => location.pathname === path;
 
   return (
 <div className="Inicio">
@@ -23,39 +20,43 @@ export default function Directormunicipalidad() {
             <li>
               <Link
                 to="inicio"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/inicio') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">🏠</span>Inicio
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="listado-incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/listado-incidencias') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">📋</span>Listado de Incidencias
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="editar-incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/editar-incidencias') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">✏️</span>Editar Incidencia
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="crear-usuarios"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/crear-usuarios') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">👤</span>Crear usuarios
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="lista-usuarios"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/director-municipalidad/lista-usuarios') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">📋👤</span>Listado de usuarios
               </Link>

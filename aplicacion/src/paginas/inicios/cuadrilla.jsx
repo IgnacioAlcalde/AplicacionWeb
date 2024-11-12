@@ -8,9 +8,6 @@ export default function CuadrilasDashboard() {
     const navigate = useNavigate();
     const handleNavigate = () => navigate('/');
   
-    const location = useLocation();
-    const isActive = (path) => location.pathname === path;
-  
     return (
   <div className="Inicio">
         <div className="navbar">
@@ -24,16 +21,17 @@ export default function CuadrilasDashboard() {
               <li>
                 <Link
                   to="inicio"
-                  className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/cuadrilla/inicio') ? 'active' : ''}`}
-                >
+                  className='text-black rounded w-100 d-inline-block px-4'
+                  >
                   <span className="icon">🏠</span> Inicio
                 </Link>
               </li>
+              <hr/>
               <li>
                 <Link
                   to="incidencias"
-                  className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/cuadrilla/incidencias') ? 'active' : ''}`}
-                >
+                  className='text-black rounded w-100 d-inline-block px-4'
+                  >
                   <span className="icon">📋</span>Listado de Incidencias asignadas
                 </Link>
               </li>

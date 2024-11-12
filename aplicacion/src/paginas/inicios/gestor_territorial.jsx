@@ -7,9 +7,6 @@ export default function Gestorterritorial() {
   const navigate = useNavigate();
   const handleNavigate = () => navigate('/');
 
-  const location = useLocation();
-  const isActive = (path) => location.pathname === path;
-
   return (
     <div className="Inicio">
       <div className="navbar">
@@ -24,23 +21,25 @@ export default function Gestorterritorial() {
             <li>
               <Link
                 to="inicio"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestor-territorial/inicio') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">🏠</span> Inicio
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="formulario_para_editar"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestor-territorial/formulario_para_editar') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">✏️</span> Registrar Incidencias
               </Link>
             </li>
+            <hr/>
             <li>
               <Link
                 to="listado_incidencias"
-                className={`text-black rounded py-2 w-100 d-inline-block px-4 ${isActive('/gestor-territorial/listado_incidencias') ? 'active' : ''}`}
+                className='text-black rounded w-100 d-inline-block px-4'
               >
                 <span className="icon">📋</span> Estado de Incidencias
               </Link>
