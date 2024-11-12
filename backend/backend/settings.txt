@@ -96,9 +96,9 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'DesarrolloWeb',
         'CLIENT': {
-            'host': '',
-            'username': '',
-            'password': '',
+            'host': 'mongodb+srv://administrador:<db_password>@desarrolloweb.ctbxy.mongodb.net/?retryWrites=true&w=majority&appName=DesarrolloWeb',
+            'username': 'administrador',
+            'password': 'admin123',
         }
     }
 }

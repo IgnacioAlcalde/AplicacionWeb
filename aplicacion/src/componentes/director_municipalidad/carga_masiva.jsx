@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import '../../componentes.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function CargaMasiva() {
     const [file, setFile] = useState(null);
@@ -23,19 +24,27 @@ export default function CargaMasiva() {
         }
     };
 
-    const handleImport = (event) => {
+    const handleImport = async (event) => {
         event.preventDefault();
         if (!file) {
             setMessage('Por favor, selecciona un archivo para importar.');
             return;
         }
 
-        // Aquí podrías añadir la lógica para leer y procesar el archivo CSV
-        // Por ejemplo, utilizando FileReader o una librería como papaparse
+        const formData = new FormData();
+        formData.append('file', file);
 
-        // Mensaje de éxito (esto es solo un ejemplo)
-        setMessage('Archivo importado exitosamente.');
-        setFile(null);
+        try {
+            const response = await axios.post('http://localhost:8000/importar-usuarios/', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            setMessage(response.data.message);
+            setFile(null);
+        } catch (error) {
+            setMessage(error.response?.data.error || 'Error al importar el archivo.');
+        }
     };
 
     return (
@@ -45,7 +54,6 @@ export default function CargaMasiva() {
                 <button className="btn btn-navegacion" onClick={Volver}>Crear usuarios</button>
             </div>
             <div className="row">
-                {/* Formulario para importar usuarios */}
                 <div className="col-md-6">
                     <div className="card">
                         <div className="card-header">Importar Usuarios</div>
@@ -67,7 +75,6 @@ export default function CargaMasiva() {
                         </div>
                     </div>
                 </div>
-                {/* Botón para exportar usuarios */}
                 <div className="col-md-6">
                     <div className="card">
                         <div className="card-header">Exportar Usuarios</div>
