@@ -1,39 +1,105 @@
-.Aplicacion {
-  text-align: center;
+/* Estilos para la barra de navegación superior */
+.navbar {
+    background-color: #d87d6d;
+    padding: 1rem 2rem;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
 }
 
-.Aplicacion-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar .logo_autonoma {
+    width: 10%; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    margin-right: 20px; /* Espacio entre la imagen y el h1 */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .Aplicacion-logo {
-    animation: Aplicacion-logo-spin infinite 20s linear;
-  }
+.navbar h1 {
+    flex-grow: 1; /* Permite que el h1 ocupe el espacio restante */
+    margin: 0; /* Elimina márgenes para centrar el h1 */
+    text-align: center; /* Centra el texto dentro del h1 */
 }
 
-.Aplicacion-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar .Logout {
+    background-color: #b8655b; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cursor tipo puntero al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave para el color */
+
+}
+.navbar .Logout:hover {
+    background-color: #C44848;
+    color: black;
 }
 
-.Aplicacion-link {
-  color: #d87d6d;
+/* Otras clases */
+.navbar-brand, .nav-link {
+    margin-top: 1%;
+    margin-block-end: 1%;
+    color: #000000 !important;
 }
 
-@keyframes Aplicacion-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-link:hover {
+    background-color: #C44848;
+    color: white !important;
 }
 
+
+/* Estilos para la Barra lateral*/
+.Barralateral{
+    display: flex;
+    width: 16rem;
+    height: calc(96vh - 52px);
+    background:#d87d6d;
+    border-right: 1px solid gray;
+}
+.Barralateral ul{
+    list-style: none;
+    padding: 1rem 2rem;
+}
+
+.Barralateral li{
+    margin-bottom: 1rem;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: auto; /* Empuja el botón hacia el final de la barra */
+}
+.Barralateral li:hover{
+    background-color: #C44848;
+    color: white !important;
+}
+.Barralateral a{
+    text-decoration: none;
+    &.active{
+        background-color: #d87d6d;
+    }
+}
+.lateral{
+    display: flex;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*Estilos para el Contenido interno*/
+.Contenido{
+    width: 100%;
+    padding: 1rem 2rem;
+    color: #d87d6d;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+.Contenido h1{
+    text-align: center;
+}
+.cajas { /* adentro de cajas va todo el contenido  */
+    color: black;
+    background: white;
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}

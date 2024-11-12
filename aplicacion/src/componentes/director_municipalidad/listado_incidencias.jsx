@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../../inicio.css';
+import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function listado_incidencias() {

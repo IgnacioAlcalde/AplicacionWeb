@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import '../../inicio.css';
+import '../../App.css';
 import logo_autonoma from "../logo_uautonoma.png";
 
 export default function CuadrilasDashboard() {

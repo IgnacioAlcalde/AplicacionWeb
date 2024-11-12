@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../inicio.css';
+import '../../App.css';
 export default function inicio() {
   return (
     <div className='cajas'>

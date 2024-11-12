@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUsuarios, getAllRoles } from '../../api/usuarios.api';
-import '../../inicio.css';
+import '../../App.css';
 import '../../componentes.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
