@@ -37,7 +37,7 @@ function Aplicacion() {
         <Routes>
           {/* Iniciar sesion */}
           <Route path="/" element={<IniciarSesionCorreo />} />
-          <Route path="inicio_sesion_rut" element={<IniciarSesionRut />} />
+          <Route path="inicio-sesion-rut" element={<IniciarSesionRut />} />
           <Route
             path="recuperacion_contraseña"
             element={<RecuperacionContraseña />}

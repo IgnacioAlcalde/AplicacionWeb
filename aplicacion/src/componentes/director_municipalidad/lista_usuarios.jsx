@@ -134,7 +134,7 @@ export default function ListaUsuarios() {
                         />
                     </div>
                     
-                    <button className="btn btn-primary mt-2" onClick={aplicarFiltros}>Aplicar Filtros</button>
+                    <button className="btn btn-navegacion" onClick={aplicarFiltros}>Aplicar Filtros</button>
                 </div>
             )}
 

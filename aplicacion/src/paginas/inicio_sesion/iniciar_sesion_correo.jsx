@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./iniciar_sesion.css";
+import "../../App.css"
 import { FaUser } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import logo_autonoma from "../logo_uautonoma.png";
 
 export default function IniciarSesionCorreo() {
   const [correo, setCorreo] = useState("");
@@ -33,6 +35,7 @@ export default function IniciarSesionCorreo() {
   ];
 
   const navigate = useNavigate();
+  const sesionRun = () => navigate('/inicio-sesion-rut');
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -64,7 +67,13 @@ export default function IniciarSesionCorreo() {
   };
 
   return (
-    <div className="caja">
+    <div>
+      <div className="navbar">
+        <img src={logo_autonoma} alt="logo" className='logo_autonoma' />
+        <h1>UrbanSenso</h1>
+        <button onClick={sesionRun} className="Logout">Iniciar sesion con Rut</button>
+      </div>
+      <div className="caja">
       <div className="contenido_pequeño">
         <h1>Bienvenido</h1>
         <h3>Inicio de sesión</h3>
@@ -92,25 +101,16 @@ export default function IniciarSesionCorreo() {
           <button type="submit" className="boton_iniciar inicio_sesion">
             Iniciar sesión
           </button>
-          <center>
-            <span
-              onClick={() => navigate("/inicio_sesion_rut")}
-              className="link"
-              style={{ cursor: "pointer" }}
-            >
-              Ingresar con rut
-            </span>
-          </center>
         </form>
-        <br></br>
         <span
           onClick={() => navigate("/recuperacion_contraseña")}
           className="link"
           style={{ cursor: "pointer" }}
         >
-          Olvide mi contraseña
+          Olvidé mi contraseña
         </span>
       </div>
+    </div>
     </div>
   );
 }
