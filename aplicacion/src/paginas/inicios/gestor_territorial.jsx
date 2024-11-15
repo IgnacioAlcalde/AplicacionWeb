@@ -29,19 +29,19 @@ export default function Gestorterritorial() {
             <hr/>
             <li>
               <Link
-                to="formulario_para_editar"
+                to="crear-formularios"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">✏️</span> Registrar Incidencias
+                <span className="icon">✏️</span> Registrar Formularios
               </Link>
             </li>
             <hr/>
             <li>
               <Link
-                to="listado_incidencias"
+                to="asignar-cuadrillas"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">📋</span> Estado de Incidencias
+                <span className="icon">📋</span> Asignar Cuadrillas
               </Link>
             </li>
           </ul>

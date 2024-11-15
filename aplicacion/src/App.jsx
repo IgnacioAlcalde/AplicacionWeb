@@ -18,6 +18,8 @@ import InicioObras from "./componentes/director_obra/inicio.jsx";
 // Componentes Gestor Territorial
 import GestorTerritorial from "./paginas/inicios/gestor_territorial.jsx";
 import InicioGestor from "./componentes/gestor_territorial/inicio.jsx";
+import CrearFormularios from "./componentes/gestor_territorial/formulario.jsx";
+import AsignarCuadrillas from "./componentes/gestor_territorial/asignarCuadrillas.jsx";
 // Componentes Cuadrilla
 import Cuadrilla from "./paginas/inicios/cuadrilla.jsx";
 import InicioCuadrilla from "./componentes/cuadrilla/inicio.jsx";
@@ -58,6 +60,8 @@ function Aplicacion() {
           {/* Enrutamiento gestor territorial */}
           <Route path="gestor-territorial" element={<GestorTerritorial />}>
             <Route path="inicio" element={<InicioGestor />} />
+            <Route path="crear-formularios" element={<CrearFormularios />} />
+            <Route path="asignar-cuadrillas" element={<AsignarCuadrillas />} />
           </Route>
           {/* Enrutamiento cuadrillas */}
           <Route path='cuadrilla' element={<Cuadrilla/>}>
