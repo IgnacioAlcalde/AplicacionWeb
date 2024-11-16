@@ -7,6 +7,11 @@ from rest_framework.documentation import include_docs_urls
 router = routers.DefaultRouter()
 router.register(r'usuarios', views.UsuarioView, 'usuarios')  # Registra la vista de usuarios
 router.register(r'roles', views.RolView, 'roles')  # Registra la vista de roles
+router.register(r'cuadrillas', views.CuadrillaView, 'cuadrillas')
+router.register(r'integrantescuadrillas', views.IntegranteCuadrillaView, 'integrantescuadrillas')
+router.register(r'tareas', views.TareasView, 'tareas')
+router.register(r'incidencias', views.IncidenciasView, 'incidencias')
+router.register(r'tiposformulario', views.TipoFormularioView, 'tiposformulario')
 
 # Rutas de la app usuarios
 urlpatterns = [

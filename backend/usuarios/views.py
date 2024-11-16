@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from .serializer import UsuarioSerializer, RolSerializer
-from .models import Usuario, Rol
+from .serializer import *
+from .models import *
 
 # ViewSets para manejar CRUD de Usuario y Rol
 class RolView(viewsets.ModelViewSet):
@@ -14,6 +14,26 @@ class RolView(viewsets.ModelViewSet):
 class UsuarioView(viewsets.ModelViewSet):
     serializer_class = UsuarioSerializer
     queryset = Usuario.objects.all()
+
+class TipoFormularioView(viewsets.ModelViewSet):
+    serializer_class = TipoFormularioSerializer
+    queryset = TipoFormulario.objects.all()
+
+class IncidenciasView(viewsets.ModelViewSet):
+    serializer_class = IncidenciasSerializer
+    queryset = Incidencias.objects.all()
+    
+class CuadrillaView(viewsets.ModelViewSet):
+    serializer_class = CuadrillasSerializer
+    queryset = Cuadrillas.objects.all()
+
+class TareasView(viewsets.ModelViewSet):
+    serializer_class = TareasSerializer
+    queryset = Tareas.objects.all()
+class IntegranteCuadrillaView(viewsets.ModelViewSet):    
+    serializer_class = IntegranteCuadrillaSerializer
+    queryset = IntegranteCuadrilla.objects.all()
+    
 
 # Vista para manejo de login
 @api_view(['POST'])

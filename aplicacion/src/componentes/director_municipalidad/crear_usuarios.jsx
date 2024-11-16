@@ -39,11 +39,12 @@ export default function CrearUsuarios() {
       const res = await createUsuarios(data);
       console.log(res);
       setSuccessMessage("Usuario creado exitosamente!");
-      reset();
       // Redirigir o mostrar mensaje de éxito
     } catch (error) {
       console.error("Error al crear usuario:", error.response?.data || error.message);
     }
+    alert("Usuario creado exitosamente");
+    reset();
   };
   
   

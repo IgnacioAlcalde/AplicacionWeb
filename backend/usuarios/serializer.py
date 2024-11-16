@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Usuario, Rol
+from .models import *
 
 class RolSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,3 +44,38 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
         instance.save()
         return instance
+    
+
+class TipoFormularioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TipoFormulario
+        fields = '__all__'  # Incluye todos los campos del modelo
+
+class IncidenciasSerializer(serializers.ModelSerializer):
+    tipo_nombre = serializers.CharField(source='tipo.nombre', read_only=True)  # Campo adicional para mostrar el nombre del tipo
+    gestor_nombre = serializers.CharField(source='gestor.nombre', read_only=True)  # Campo adicional para mostrar el nombre del gestor
+
+    class Meta:
+        model = Incidencias
+        fields = '__all__'
+
+class CuadrillasSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cuadrillas
+        fields = '__all__'
+
+class TareasSerializer(serializers.ModelSerializer):
+    incidencia_titulo = serializers.CharField(source='incidencia.titulo', read_only=True)  # Campo adicional para mostrar el título de la incidencia
+    cuadrilla_nombre = serializers.CharField(source='cuadrilla.nombre', read_only=True)  # Campo adicional para mostrar el nombre de la cuadrilla
+
+    class Meta:
+        model = Tareas
+        fields = '__all__'
+
+class IntegranteCuadrillaSerializer(serializers.ModelSerializer):
+    cuadrilla_nombre = serializers.CharField(source='cuadrilla.nombre', read_only=True)  # Campo adicional para mostrar el nombre de la cuadrilla
+    usuario_nombre = serializers.CharField(source='usuario.nombre', read_only=True)  # Campo adicional para mostrar el nombre del usuario
+
+    class Meta:
+        model = IntegranteCuadrilla
+        fields = '__all__'

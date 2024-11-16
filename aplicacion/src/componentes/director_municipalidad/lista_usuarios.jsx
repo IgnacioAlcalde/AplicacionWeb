@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getAllUsuarios, getAllRoles } from '../../api/usuarios.api';
+import { getAllUsuarios, getAllRoles, deleteUsuarios } from '../../api/usuarios.api';
 
 export default function ListaUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
@@ -159,7 +159,17 @@ export default function ListaUsuarios() {
                             <td>{calcularEdad(usuario.fecha_nacimiento)} años</td>
                             <td>{usuario.correo}</td>
                             <td>{usuario.rol}</td>
-                            <td><button className="btn btn-primary">Editar</button><button className="btn btn-danger">Eliminar</button></td>
+                            <td><button className="btn btn-primary">Editar</button>
+                            <button className="btn btn-danger" onClick={async () =>{
+                                const accepted = window.confirm("Estas seguro que deseas eliminar el usuario?"); 
+                                if (accepted) { 
+                                    await deleteUsuarios(usuario.id); 
+                                    alert("Usuario eliminado exitosamente");
+                                    window.location.reload();
+                                }else{ alert("Operació́n cancelada"); 
+                                        
+                                    }}}>Eliminar</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
