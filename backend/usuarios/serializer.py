@@ -17,7 +17,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'fecha_nacimiento', 
             'run', 
             'correo', 
-            #'contraseña', 
+            'contraseña', 
             'rol', 
             'first_session', 
             'created', 

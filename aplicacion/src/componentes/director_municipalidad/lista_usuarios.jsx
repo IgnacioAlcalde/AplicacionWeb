@@ -147,6 +147,7 @@ export default function ListaUsuarios() {
                         <th>Edad</th>
                         <th>Correo Electrónico</th>
                         <th>Rol</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -158,6 +159,7 @@ export default function ListaUsuarios() {
                             <td>{calcularEdad(usuario.fecha_nacimiento)} años</td>
                             <td>{usuario.correo}</td>
                             <td>{usuario.rol}</td>
+                            <td><button className="btn btn-primary">Editar</button><button className="btn btn-danger">Eliminar</button></td>
                         </tr>
                     ))}
                 </tbody>
