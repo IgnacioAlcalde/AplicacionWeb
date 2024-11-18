@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getAllUsuarios, getAllRoles, deleteUsuarios } from '../../api/usuarios.api';
+import { useNavigate } from 'react-router-dom';
 
 export default function ListaUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
@@ -68,6 +69,10 @@ export default function ListaUsuarios() {
         }
 
         setUsuariosFiltrados(usuariosFiltrados);
+    };
+    const navigate = useNavigate();
+    const editarUsuario = (id) => {
+        navigate(`/director-municipalidad/editar-usuario/${id}`); // Redirigir a la ruta de editar usuario con el ID
     };
 
     return (
@@ -159,7 +164,7 @@ export default function ListaUsuarios() {
                             <td>{calcularEdad(usuario.fecha_nacimiento)} años</td>
                             <td>{usuario.correo}</td>
                             <td>{usuario.rol}</td>
-                            <td><button className="btn btn-primary">Editar</button>
+                            <td><button className="btn btn-primary" onClick={() => editarUsuario(usuario.id)}>Editar</button>
                             <button className="btn btn-danger" onClick={async () =>{
                                 const accepted = window.confirm("Estas seguro que deseas eliminar el usuario?"); 
                                 if (accepted) { 

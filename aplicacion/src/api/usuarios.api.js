@@ -39,3 +39,6 @@ export const updateCuadrillas = (id, cuadrilla) => UsuariosApi.put(`cuadrillas/$
 export const updateIntegrantesCuadrillas = (id, integrantescuadrilla) => UsuariosApi.put(`integrantescuadrillas/${id}/`, integrantescuadrilla);
 export const updateTareas = (id, tarea) => UsuariosApi.put(`tareas/${id}/`, tarea);
 export const updateTiposFormularios = (id, tiposformulario) => UsuariosApi.put(`tiposformulario/${id}/`, tiposformulario);
+
+//GET BY ID
+export const getUsuario = (id) => UsuariosApi.get(`usuarios/${id}`);

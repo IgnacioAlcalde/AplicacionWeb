@@ -10,6 +10,7 @@ import RecuperacionContraseña from "./paginas/inicio_sesion/recuperacion_contra
 import DirectorMunicipalidad from "./paginas/inicios/director_municipalidad.jsx";
 import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx";
 import CrearUsuarios from "./componentes/director_municipalidad/crear_usuarios.jsx";
+import EditarUsuario from "./componentes/director_municipalidad/editar_usuario.jsx";
 import ListaUsuariosMunicipalidad from './componentes/director_municipalidad/lista_usuarios.jsx';
 import CargaMasiva from './componentes/director_municipalidad/carga_masiva.jsx';
 // Componentes Director de obra
@@ -47,6 +48,7 @@ function Aplicacion() {
             <Route path="inicio" element={<InicioMunicipalidad />} />
             <Route path="crear-usuarios" element={<CrearUsuarios />} />
             <Route path='lista-usuarios' element={<ListaUsuariosMunicipalidad/>}/>
+            <Route path='editar-usuario/:id' element={<EditarUsuario/>}/>
             <Route path='carga-masiva' element={<CargaMasiva/>}/>
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
             <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
