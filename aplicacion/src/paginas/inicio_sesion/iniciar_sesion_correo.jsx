@@ -47,7 +47,7 @@ export default function IniciarSesionCorreo() {
                         navigate("/cuadrilla/inicio");
                         break;
                     default:
-                        setError("Rol desconocido. Comuníquese con soporte.");
+                        navigate("/cuadrilla/inicio");
                         break;
                 }
             } else {

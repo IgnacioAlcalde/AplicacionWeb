@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { createIncidencias, getAllTiposFormularios } from '../../api/usuarios.api';
+import { createIncidencias, getAllTipoFormularios } from '../../api/usuarios.api';
 import React, { useState, useEffect } from 'react';
 import '../../App.css';
 import '../../componentes.css';

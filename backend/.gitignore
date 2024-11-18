@@ -60,3 +60,5 @@ nosetests.xml
 
 # Documentación
 docs/_build/
+
+imagenes

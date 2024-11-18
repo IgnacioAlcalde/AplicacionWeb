@@ -16,5 +16,6 @@ router.register(r'tiposformulario', views.TipoFormularioView, 'tiposformulario')
 # Rutas de la app usuarios
 urlpatterns = [
     path('', include(router.urls)),  # Incluye todas las rutas del router
-    path('docs/', include_docs_urls(title='Usuarios API'))  # Documentación opcional
+    path('docs/', include_docs_urls(title='Usuarios API')),  # Documentación opcional}
+    path('api/auth/login/', views.login, name='login')
 ]
