@@ -48,6 +48,7 @@ class Incidencias(models.Model):
     gravedad = models.CharField(max_length=100, verbose_name="Nivel de gravedad")
     descripcion = models.TextField(verbose_name="Descripción")
     imagenes = models.ImageField(upload_to='imagenes/', verbose_name="Imagenes")
+    estado = models.CharField(max_length=100, default='Sin iniciar', verbose_name="Estado")
     gestor = models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name="Gestor territorial")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de Actualización")

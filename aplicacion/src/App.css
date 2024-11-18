@@ -31,7 +31,7 @@
 
 }
 .navbar .Logout:hover {
-    background-color: #C44848;
+    background-color: #bf5643;
     color: black;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .nav-link:hover {
-    background-color: #C44848;
+    background-color: #bf5643;
     color: white !important;
 }
 
@@ -71,7 +71,7 @@
     margin-left: auto; /* Empuja el botón hacia el final de la barra */
 }
 .Barralateral li:hover{
-    background-color: #C44848;
+    background-color: #bf5643;
     color: white !important;
 }
 .Barralateral a{

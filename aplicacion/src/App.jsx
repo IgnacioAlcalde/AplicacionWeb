@@ -49,13 +49,13 @@ function Aplicacion() {
             <Route path='lista-usuarios' element={<ListaUsuariosMunicipalidad/>}/>
             <Route path='carga-masiva' element={<CargaMasiva/>}/>
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
-            <Route path="editar-incidencias" element={<EditarIncidencias/>} />
+            <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
           </Route>
           {/* Enrutamiento director de obras */}
           <Route path="director-obra" element={<DirectorObra />}>
             <Route path="inicio" element={<InicioObras />} />
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
-            <Route path="editar-incidencias" element={<EditarIncidencias/>} />
+            <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
           </Route>
           {/* Enrutamiento gestor territorial */}
           <Route path="gestor-territorial" element={<GestorTerritorial />}>

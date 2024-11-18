@@ -37,15 +37,6 @@ export default function Directormunicipalidad() {
             <hr/>
             <li>
               <Link
-                to="editar-incidencias"
-                className='text-black rounded w-100 d-inline-block px-4'
-              >
-                <span className="icon">✏️</span>Editar Incidencia
-              </Link>
-            </li>
-            <hr/>
-            <li>
-              <Link
                 to="crear-usuarios"
                 className='text-black rounded w-100 d-inline-block px-4'
               >

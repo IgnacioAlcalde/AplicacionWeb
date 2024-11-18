@@ -1,98 +1,113 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { getAllIncidencias} from '../../api/usuarios.api';
+import { useNavigate } from 'react-router-dom';
 
 export default function listado_incidencias() {
-    const [proyectos, setProyectos] = useState([
-        { nombre: 'Incidencia A', estado: 'En progreso', inicio: '2023-11-01' },
-        { nombre: 'Incidencia B', estado: 'Completado', inicio: '2023-10-20', fin: '2023-11-10' },
-        { nombre: 'Incidencia C', estado: 'Completado', inicio: '2023-09-10', fin: '2023-10-10' },
-        { nombre: 'Incidencia D', estado: 'No Terminado', inicio: '2023-12-06' },
-    ]);
-
+    const [proyectos, setProyectos] = useState([]);
     const [filtroNombre, setFiltroNombre] = useState('');
     const [filtroEstado, setFiltroEstado] = useState('');
     const [filtroInicio, setFiltroInicio] = useState('');
+    const [mostrarFiltros, setMostrarFiltros] = useState(false); // Estado para mostrar/ocultar filtros
+    const navegar = useNavigate();
+    const editarIncidencia = (id) => {
+        lert('Editar incidencia con ID: ' + id);
+        navegar(`/editar-incidencia/${id}`);
+    }
+    // Cargar las incidencias desde el backend
+    useEffect(() => {
+        const fetchIncidencias = async () => {
+            try {
+                const response = await getAllIncidencias();
+                setProyectos(response.data); // Asignar datos desde el backend
+            } catch (error) {
+                console.error('Error al obtener incidencias:', error);
+            }
+        };
 
-    // Función para manejar la edición
-    const editarIncidencia = (index) => {
-        alert('Editar incidencia: ' + proyectos[index].nombre);
-        // Aquí podrías redirigir a una página de edición o abrir un formulario modal
-    };
+        fetchIncidencias();
+    }, []);
 
     // Filtrar incidencias
     const filtrarIncidencias = () => {
-        return proyectos.filter(proyecto => {
-            const matchesNombre = proyecto.nombre.toLowerCase().includes(filtroNombre.toLowerCase());
+        return proyectos.filter((proyecto) => {
+            const matchesNombre = proyecto.titulo.toLowerCase().includes(filtroNombre.toLowerCase());
             const matchesEstado = filtroEstado === '' || proyecto.estado === filtroEstado;
-            const matchesInicio = filtroInicio === '' || proyecto.inicio === filtroInicio;
+            const matchesInicio = filtroInicio === '' || proyecto.fecha === filtroInicio;
 
             return matchesNombre && matchesEstado && matchesInicio;
         });
     };
 
-    useEffect(() => {
-        // Este efecto podría utilizarse para cargar datos iniciales si es necesario
-    }, []);
-// hay que conectarlo a backend para mejorarlo
     return (
-        <div className='card card-body text-black'>
-            <div className='d-flex justify-content-between align-items-center'>
-                <h2 className="tituloh2">Lista de Proyectos Activos</h2>
-                <button className='btn btn-navegacion'>Filtrar</button>
-            </div>
-            <hr/>
-            <h4 className="titulofiltro">Filtrar</h4>
-            <div className="filtro">
-                <input
-                    type="text"
-                    id="filtroNombre"
-                    placeholder="Buscar por nombre"
-                    value={filtroNombre}
-                    onChange={(e) => setFiltroNombre(e.target.value)}
-                />
-                <select
-                    id="filtroEstado"
-                    value={filtroEstado}
-                    onChange={(e) => setFiltroEstado(e.target.value)}
+        <div className="card card-body text-black">
+            <div className="d-flex justify-content-between align-items-center">
+                <h2 className="tituloh2">Lista de Incidencias</h2>
+                <button
+                    className="btn btn-navegacion"
+                    onClick={() => setMostrarFiltros(!mostrarFiltros)}
                 >
-                    <option value="">Todos los estados</option>
-                    <option value="En progreso">En progreso</option>
-                    <option value="Completado">Completado</option>
-                    <option value="No Terminado">No terminado</option>
-                </select>
-                <input
-                    type="date"
-                    id="filtroInicio"
-                    value={filtroInicio}
-                    onChange={(e) => setFiltroInicio(e.target.value)}
-                />
+                    {mostrarFiltros ? 'Ocultar Filtros' : 'Mostrar Filtros'}
+                </button>
             </div>
-            <hr/>
+            <hr />
+            {mostrarFiltros && (
+                <div>
+                    <h4 className="titulofiltro">Filtrar</h4>
+                    <div className="filtro">
+                        <input
+                            type="text"
+                            id="filtroNombre"
+                            placeholder="Buscar por título"
+                            value={filtroNombre}
+                            onChange={(e) => setFiltroNombre(e.target.value)}
+                        />
+                        <select
+                            id="filtroEstado"
+                            value={filtroEstado}
+                            onChange={(e) => setFiltroEstado(e.target.value)}
+                        >
+                            <option value="">Todos los estados</option>
+                            <option value="Sin iniciar">Sin iniciar</option>
+                            <option value="En progreso">En progreso</option>
+                            <option value="Completado">Completado</option>
+                            <option value="No Terminado">No terminado</option>
+                        </select>
+                        <input
+                            type="date"
+                            id="filtroInicio"
+                            value={filtroInicio}
+                            onChange={(e) => setFiltroInicio(e.target.value)}
+                        />
+                    </div>
+                    <hr />
+                </div>
+            )}
             <table id="incidencia" className="table">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
+                        <th>Título</th>
                         <th>Estado</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Fecha de Término</th>
-                        <th>Editar incidencia</th>
+                        <th>Fecha</th>
+                        <th>Localización</th>
+                        <th>Descripcion</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {filtrarIncidencias().map((proyecto, index) => (
                         <tr key={index}>
-                            <td>{proyecto.nombre}</td>
+                            <td>{proyecto.titulo}</td>
                             <td>{proyecto.estado}</td>
-                            <td>{proyecto.inicio}</td>
-                            <td>{proyecto.fin || 'N/A'}</td>
+                            <td>{proyecto.fecha}</td>
+                            <td>{proyecto.localizacion}</td>
+                            <td>{proyecto.descripcion}</td>
                             <td>
                                 <button
                                     className="btn btn-primary"
-                                    onClick={() => editarIncidencia(index)}
-                                >
-                                    Editar
-                                </button>
+                                    onClick={() => editarIncidencia(proyecto.id)}
+                                >Editar</button>
                             </td>
                         </tr>
                     ))}
