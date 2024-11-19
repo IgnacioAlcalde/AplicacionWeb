@@ -42,3 +42,9 @@ export const updateTiposFormularios = (id, tiposformulario) => UsuariosApi.put(`
 
 //GET BY ID
 export const getUsuario = (id) => UsuariosApi.get(`usuarios/${id}`);
+export const getRol = (id) => UsuariosApi.get(`roles/${id}`);
+export const getIncidencia = (id) => UsuariosApi.get(`incidencias/${id}`);
+export const getCuadrilla = (id) => UsuariosApi.get(`cuadrillas/${id}`);
+export const getIntegrantesCuadrilla = (id) => UsuariosApi.get(`integrantescuadrillas/${id}`);
+export const getTarea = (id) => UsuariosApi.get(`tareas/${id}`);
+export const getTipoFormulario = (id) => UsuariosApi.get(`tiposformulario/${id}`);

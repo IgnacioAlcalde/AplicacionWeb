@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getAllIncidencias} from '../../api/usuarios.api';
+import { getAllIncidencias, deleteIncidencias} from '../../api/usuarios.api';
 import { useNavigate } from 'react-router-dom';
 
 export default function listado_incidencias() {
@@ -108,6 +108,15 @@ export default function listado_incidencias() {
                                     className="btn btn-primary"
                                     onClick={() => editarIncidencia(proyecto.id)}
                                 >Editar</button>
+                                <button className="btn btn-danger" onClick={async () =>{
+                                const accepted = window.confirm("Estas seguro que deseas eliminar la incidencia?"); 
+                                if (accepted) { 
+                                    await deleteIncidencias(proyecto.id); 
+                                    alert("Incidencia eliminada exitosamente");
+                                    window.location.reload();
+                                }else{ alert("Operació́n cancelada"); 
+                                        
+                                    }}}>Eliminar</button>
                             </td>
                         </tr>
                     ))}

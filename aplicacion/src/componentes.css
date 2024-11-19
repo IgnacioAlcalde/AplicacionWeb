@@ -12,3 +12,9 @@
 .btn-navegacion:hover {
     background-color: #bf5643 ; /* Color de fondo al pasar el mouse */
 }
+
+.table {
+    width: 100%;
+    table-layout: fixed; /* Asegura que las columnas se distribuyan de manera equitativa */
+  }
+  

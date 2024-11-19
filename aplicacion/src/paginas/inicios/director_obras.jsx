@@ -38,10 +38,19 @@ export default function Directorobra() {
             <hr/>
             <li>
               <Link
-                to="editar-incidencias"
+                to="crear-cuadrillas"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">✏️</span> Editar Incidencia
+                <span className="icon">✏️</span> Asignar Cuadrillas
+              </Link>
+            </li>
+            <hr/>
+            <li>
+              <Link
+                to="crear-tareas"
+                className='text-black rounded w-100 d-inline-block px-4'
+              >
+                <span className="icon">✏️</span> Crear tareas
               </Link>
             </li>
           </ul>
