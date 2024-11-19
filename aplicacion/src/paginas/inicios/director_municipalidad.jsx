@@ -46,6 +46,15 @@ export default function Directormunicipalidad() {
             <hr/>
             <li>
               <Link
+                to="crear-rol"
+                className='text-black rounded w-100 d-inline-block px-4'
+              >
+                <span className="icon">👤</span>Crear Rol
+              </Link>
+            </li>
+            <hr/>
+            <li>
+              <Link
                 to="lista-usuarios"
                 className='text-black rounded w-100 d-inline-block px-4'
               >

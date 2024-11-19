@@ -36,14 +36,6 @@ export default function Gestorterritorial() {
               </Link>
             </li>
             <hr/>
-            <li>
-              <Link
-                to="asignar-cuadrillas"
-                className='text-black rounded w-100 d-inline-block px-4'
-              >
-                <span className="icon">📋</span> Asignar Cuadrillas
-              </Link>
-            </li>
           </ul>
         </div>
         <div className="Contenido">
