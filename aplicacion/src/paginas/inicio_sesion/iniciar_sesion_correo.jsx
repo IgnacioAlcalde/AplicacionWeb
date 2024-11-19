@@ -35,7 +35,7 @@ export default function IniciarSesionCorreo() {
                         navigate("/director-municipalidad/inicio");
                         break;
                     case "Director municipalidad":
-                        navigate("/director-municipalidad");
+                        navigate("/director-municipalidad/inicio");
                         break;
                     case "Director de obras":
                         navigate("/director-obra/inicio");
