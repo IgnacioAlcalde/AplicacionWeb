@@ -143,7 +143,7 @@ export default function ListaUsuarios() {
                 </div>
             )}
 
-            <table className="table table-bordered mt-3">
+            <table className="table table-hover mt-3">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -164,8 +164,8 @@ export default function ListaUsuarios() {
                             <td>{calcularEdad(usuario.fecha_nacimiento)} años</td>
                             <td>{usuario.correo}</td>
                             <td>{usuario.rol}</td>
-                            <td><button className="btn btn-primary" onClick={() => editarUsuario(usuario.id)}>Editar</button>
-                            <button className="btn btn-danger" onClick={async () =>{
+                            <td><button className="btn btn-navegacion mx-2" onClick={() => editarUsuario(usuario.id)}>Editar</button>
+                            <button className="btn btn-navegacion" onClick={async () =>{
                                 const accepted = window.confirm("Estas seguro que deseas eliminar el usuario?"); 
                                 if (accepted) { 
                                     await deleteUsuarios(usuario.id); 

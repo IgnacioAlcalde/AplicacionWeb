@@ -84,7 +84,7 @@ export default function listado_incidencias() {
                     <hr />
                 </div>
             )}
-            <table id="incidencia" className="table">
+            <table id="incidencia" className="table table-hover">
                 <thead>
                     <tr>
                         <th>Título</th>
@@ -105,10 +105,10 @@ export default function listado_incidencias() {
                             <td>{proyecto.descripcion}</td>
                             <td>
                                 <button
-                                    className="btn btn-primary"
+                                    className="btn btn-navegacion"
                                     onClick={() => editarIncidencia(proyecto.id)}
                                 >Editar</button>
-                                <button className="btn btn-danger" onClick={async () =>{
+                                <button className="btn btn-navegacion ms-2" onClick={async () =>{
                                 const accepted = window.confirm("Estas seguro que deseas eliminar la incidencia?"); 
                                 if (accepted) { 
                                     await deleteIncidencias(proyecto.id); 

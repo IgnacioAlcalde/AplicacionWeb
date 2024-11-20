@@ -1,6 +1,6 @@
 button{
-    background-color: #d87d6d ;  /* Aseguramos que el color se aplique con !important */
-    border-color: #d87d6d;
+    background-color: #4d868d ;  /* Aseguramos que el color se aplique con !important */
+    border-color: #4d868d;
 }
 .caja{
     display: flex;
@@ -28,6 +28,7 @@ button{
     text-align: center;
 }
 .contenido_pequeño input {
+    background-color: white;
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -48,7 +49,7 @@ button{
 /* Mostrar el modal cuando se accede al ID "loginModal" */
 .olv {
     margin-top: 10px;
-    background-color: #d87d6d;
+    background-color: #4d868d;
     color: white;
     padding: 10px;
     text-decoration: none;
@@ -57,7 +58,7 @@ button{
 }
 
 .olv:hover {
-    background-color: #C44848;
+    background-color: #436e77;
     text-decoration: none;
     color: #ccc;
 }
@@ -68,7 +69,7 @@ button{
     margin-bottom: 10px;
 }
 .boton_iniciar:hover{
-    background-color: #C44848;
+    background-color: #436e77;
     color: black;
     border: 0;
     padding: 12px;

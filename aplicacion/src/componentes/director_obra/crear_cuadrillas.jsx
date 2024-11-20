@@ -59,12 +59,13 @@ export default function crear_cuadrillas() {
     };
 
   return (
+    <div>
     <div className="card card-body text-black">
       <div className="d-flex justify-content-between">
         <h2>{isEditing ? "Editar Cuadrilla" : "Crear Cuadrilla"}</h2>
         {/* Botón "Editar Cuadrilla" */}
         {!isEditing && (
-          <button className="btn btn-navegacion" onClick={() => {setIsEditing(true);window.location.reload();}}>
+          <button className="btn btn-navegacion" onClick={() => setIsEditing(true)}>
             Editar Cuadrilla
           </button>
         )}
@@ -149,60 +150,63 @@ export default function crear_cuadrillas() {
           )}
         </div>
       </form>
-          <hr />
-      {/* Mostrar lista de cuadrillas abajo en formato de tabla */}
-      <div className="mt-4">
-        <h3>Lista de Cuadrillas:</h3>
-        <table className="table table-striped w-100">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Área de Trabajo</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cuadrillas.length > 0 ? (
-              cuadrillas.map((cuadrilla) => (
-                <tr key={cuadrilla.id}>
-                  <td>{cuadrilla.nombre}</td>
-                  <td>{cuadrilla.area_trabajo}</td>
-                  <td>{cuadrilla.estado}</td>
-                  <td>
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => handleEdit(cuadrilla)}
-                    >
-                      Editar
-                    </button>
-                    <button
-                      className="btn btn-danger mx-2"
-                      onClick={async () => {
-                        const accepted = window.confirm("¿Estás seguro que deseas eliminar la cuadrilla?");
-                        if (accepted) {
-                          await deleteCuadrillas(cuadrilla.id);
-                          alert("Cuadrilla eliminada exitosamente");
-                          window.location.reload();
-                        } else {
-                          alert("Operación cancelada");
-                        }
-                      }}
-                    >
-                      Eliminar
-                    </button>
-                    <button className="btn btn-success"onClick={() => asignarMiembros(cuadrilla.id)}>Asignar miembros</button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4">No hay cuadrillas disponibles.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
     </div>
+
+    <div className="card card-body mt-2">
+      <div className="d-flex justify-content-between">
+        <h3>Lista de Cuadrillas:</h3>
+        <button className="btn btn-navegacion">Filtros</button>
+      </div>
+    <table className="table table-hover w-100">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Área de Trabajo</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cuadrillas.length > 0 ? (
+          cuadrillas.map((cuadrilla) => (
+            <tr key={cuadrilla.id}>
+              <td>{cuadrilla.nombre}</td>
+              <td>{cuadrilla.area_trabajo}</td>
+              <td>{cuadrilla.estado}</td>
+              <td>
+                <button
+                  className="btn btn-navegacion"
+                  onClick={() => handleEdit(cuadrilla)}
+                >
+                  Editar
+                </button>
+                <button
+                  className="btn btn-navegacion mx-2"
+                  onClick={async () => {
+                    const accepted = window.confirm("¿Estás seguro que deseas eliminar la cuadrilla?");
+                    if (accepted) {
+                      await deleteCuadrillas(cuadrilla.id);
+                      alert("Cuadrilla eliminada exitosamente");
+                      window.location.reload();
+                    } else {
+                      alert("Operación cancelada");
+                    }
+                  }}
+                >
+                  Eliminar
+                </button>
+                <button className="btn btn-navegacion"onClick={() => asignarMiembros(cuadrilla.id)}>Asignar miembros</button>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="4">No hay cuadrillas disponibles.</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  </div>
+  </div>
   );
 }

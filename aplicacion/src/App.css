@@ -1,6 +1,6 @@
 /* Estilos para la barra de navegación superior */
 .navbar {
-    background-color: #d87d6d;
+    background-color: #7aacb2;
     padding: 1rem 2rem;
     color: rgb(0, 0, 0);
     border-bottom: 1px solid rgb(0, 0, 0);
@@ -21,7 +21,7 @@
 }
 
 .navbar .Logout {
-    background-color: #b8655b; /* Color de fondo */
+    background-color: #436e77; /* Color de fondo */
     color: white; /* Color del texto */
     border: none; /* sin borde */
     border-radius: 20px; /* Bordes redondeados */
@@ -31,7 +31,7 @@
 
 }
 .navbar .Logout:hover {
-    background-color: #bf5643;
+    background-color: #436e77;
     color: black;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .nav-link:hover {
-    background-color: #bf5643;
+    background-color: #3b5c63;
     color: white !important;
 }
 
@@ -54,7 +54,7 @@
     flex-direction: column; /* Asegura que los elementos se coloquen en columna */
     width: 16rem;
     height: 100vh; /* Ocupa toda la altura de la ventana */
-    background: #d87d6d;
+    background: #7aacb2;
     border-right: 1px solid gray;
 }
 .Barralateral ul{
@@ -71,7 +71,7 @@
     margin-left: auto; /* Empuja el botón hacia el final de la barra */
 }
 .Barralateral li:hover{
-    background-color: #bf5643;
+    background-color: #3b5c63;
     color: white !important;
 }
 .Barralateral a{
@@ -92,14 +92,5 @@
 .Contenido{
     width: 100%;
     padding: 1rem 2rem;
-    color: #d87d6d;
 }
-.Contenido h1{
-    text-align: center;
-}
-.cajas { /* adentro de cajas va todo el contenido  */
-    color: black;
-    background: white;
-    border: 2px solid rgba(255, 255, 255, .2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-}
+
