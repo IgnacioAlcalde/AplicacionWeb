@@ -17,4 +17,11 @@
     width: 100%;
     table-layout: fixed; /* Asegura que las columnas se distribuyan de manera equitativa */
   }
-  
+
+.Mapa{
+    width: 40%;
+    height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
