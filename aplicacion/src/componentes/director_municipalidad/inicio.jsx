@@ -1,6 +1,5 @@
-// npm install leaflet
 import '../../componentes.css';
-
+import {getAllIncidencias} from '../../api/usuarios.api';
 import React, { useEffect, useState } from 'react';
 import L from 'leaflet'; // Biblioteca de Leaflet
 import 'leaflet/dist/leaflet.css'; // Estilos de Leaflet
@@ -12,80 +11,75 @@ export default function Dashboard() {
   const [puntosDeInteres, setPuntosDeInteres] = useState([]);
 
   useEffect(() => {
-    const fetchCoordinates = async () => {
+    const fetchIncidencias = async () => {
       try {
-        // Direcciones a geocodificar
-        const direcciones = [
-          'Av. Pedro de Valdivia 641, Santiago, Chile',
-          'Av. Pedro de Valdivia 425, Santiago, Chile',
-        ];
+        // Llama a tu backend para obtener las incidencias
+        const response = await getAllIncidencias(); // Ajusta la URL según tu API
+        const incidencias = response.data;
 
-        // Promesas para geocodificar cada dirección
-        const coordenadasPromises = direcciones.map(async (direccion) => {
-          const response = await axios.get(
-            `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-              direccion
-            )}`
-          );
+        // Promesas para geocodificar cada incidencia
+        const coordenadasPromises = incidencias.map(async (incidencia) => {
+          const { localizacion, titulo } = incidencia; // Asegúrate de que estos campos existan en tu modelo
+          try {
+            const geoResponse = await axios.get(
+              `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+                localizacion
+              )}`
+            );
 
-          // Retornar la primera coincidencia si existe
-          if (response.data && response.data.length > 0) {
-            const { lat, lon } = response.data[0];
-            return { lat: parseFloat(lat), lng: parseFloat(lon), nombre: direccion };
+            // Retornar la primera coincidencia si existe
+            if (geoResponse.data && geoResponse.data.length > 0) {
+              const { lat, lon } = geoResponse.data[0];
+              return { lat: parseFloat(lat), lng: parseFloat(lon), titulo };
+            } else {
+              console.error(`No se encontró coordenada para: ${localizacion}`);
+              return null;
+            }
+          } catch (geoError) {
+            console.error(`Error al geocodificar: ${localizacion}`, geoError);
+            return null;
           }
-
-          console.error(`No se encontró coordenada para: ${direccion}`);
-          return null;
         });
 
         // Esperar que todas las promesas se resuelvan
         const resultados = await Promise.all(coordenadasPromises);
         setPuntosDeInteres(resultados.filter((punto) => punto !== null)); // Filtrar nulos
       } catch (error) {
-        console.error('Error al geocodificar direcciones:', error);
+        console.error('Error al obtener incidencias:', error);
       }
     };
 
-    fetchCoordinates();
+    fetchIncidencias();
   }, []);
 
   useEffect(() => {
     if (puntosDeInteres.length > 0) {
-      let map; // Variable para almacenar el mapa
-  
-      // Verificar si el mapa ya existe
-      if (!map) {
-        map = L.map('map').setView([-33.45694, -70.64827], 13);
-  
-        // Cargar los mosaicos de OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors',
-        }).addTo(map);
-      }
-  
+      // Crear o actualizar el mapa
+      const map = L.map('map').setView([-33.45694, -70.64827], 13);
+
+      // Cargar los mosaicos de OpenStreetMap
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+      }).addTo(map);
+
       // Agregar marcadores al mapa
-      puntosDeInteres.forEach(({ lat, lng, nombre }) => {
+      puntosDeInteres.forEach(({ lat, lng, titulo }) => {
         L.marker([lat, lng])
           .addTo(map)
-          .bindPopup(`<b>${nombre}</b>`);
+          .bindPopup(`<b>${titulo}</b>`);
       });
-  
+
       // Limpiar el mapa al desmontar el componente
       return () => {
-        if (map) {
-          map.remove();
-        }
+        map.remove();
       };
     }
   }, [puntosDeInteres]);
-  
 
   return (
     <div className="card card-body text-black">
-      <h1 className="display-6 text-center">Dashboard de Director Municipal</h1>
-      <p className="text-center">Mapa con puntos de interés de las cuadrillas</p>
       <div className="Mapa flexv">
-        <div id="map" style={{ height: '100%', width: '100%' }}></div>
+        <div id="map" style={{ height: '500px', width: '100%' }}></div>
       </div>
     </div>
   );
