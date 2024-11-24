@@ -12,6 +12,7 @@ router.register(r'integrantescuadrillas', views.IntegranteCuadrillaView, 'integr
 router.register(r'tareas', views.TareasView, 'tareas')
 router.register(r'incidencias', views.IncidenciasView, 'incidencias')
 router.register(r'tiposformulario', views.TipoFormularioView, 'tiposformulario')
+router.register(r'tickets', views.TicketsView, 'tickets')
 
 # Rutas de la app usuarios
 urlpatterns = [

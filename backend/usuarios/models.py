@@ -108,3 +108,20 @@ class IntegranteCuadrilla(models.Model):
     
     def __str__(self):
         return f"{self.usuario} - {self.cuadrilla.nombre}"  # Devuelve una cadena descriptiva
+
+class Tickets(models.Model):
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, verbose_name="Usuario")
+    tipo = models.CharField(max_length=100, verbose_name="Tipo de Ticket")
+    descripcion = models.TextField(verbose_name="Descripción")
+    estado = models.CharField(max_length=100, default='Abierto', verbose_name="Estado")
+    urgencia = models.CharField(max_length=100, default='Baja', verbose_name="Urgencia")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de Actualización")
+    
+    class Meta:
+        verbose_name = 'Ticket'
+        verbose_name_plural = 'Tickets'
+        ordering = ['tipo']
+    
+    def __str__(self):
+        return self.tipo

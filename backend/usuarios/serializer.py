@@ -79,3 +79,8 @@ class IntegranteCuadrillaSerializer(serializers.ModelSerializer):
     class Meta:
         model = IntegranteCuadrilla
         fields = '__all__'
+
+class TicketsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tickets
+        fields = '__all__'

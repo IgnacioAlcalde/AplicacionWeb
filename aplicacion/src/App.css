@@ -1,96 +1,117 @@
+/* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Estilos para la barra de navegación superior */
 .navbar {
-    background-color: #7aacb2;
+    background-color: #7aacb2; /* Color principal */
     padding: 1rem 2rem;
     color: rgb(0, 0, 0);
     border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
     align-items: center; /* Centra verticalmente los elementos */
+    position: fixed; /* Fija la barra al inicio */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    z-index: 1000; /* Asegura que quede encima */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .navbar .logo_autonoma {
-    width: 10%; /* Ajusta el tamaño según sea necesario */
-    height: auto; /* Mantiene la relación de aspecto de la imagen */
-    margin-right: 20px; /* Espacio entre la imagen y el h1 */
+    width: 100px; /* Tamaño fijo para evitar desbordamientos */
+    height: auto; /* Mantiene la proporción */
+    margin-right: 1rem; /* Espaciado entre logo y texto */
 }
 
 .navbar h1 {
-    flex-grow: 1; /* Permite que el h1 ocupe el espacio restante */
-    margin: 0; /* Elimina márgenes para centrar el h1 */
-    text-align: center; /* Centra el texto dentro del h1 */
+    flex-grow: 1; /* Ocupa todo el espacio restante */
+    margin: 0;
+    text-align: center; /* Centra el texto */
+    font-size: 1.5rem;
 }
 
 .navbar .Logout {
-    background-color: #436e77; /* Color de fondo */
+    background-color: #436e77; /* Color del botón */
     color: white; /* Color del texto */
-    border: none; /* sin borde */
+    border: none;
     border-radius: 20px; /* Bordes redondeados */
-    padding: 10px 20px; /* Espaciado interno */
-    cursor: pointer; /* Cursor tipo puntero al pasar el mouse */
-    transition: background-color 0.3s ease; /* Transición suave para el color */
-
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
 }
+
 .navbar .Logout:hover {
-    background-color: #436e77;
-    color: black;
+    background-color: #3b5c63; /* Color al pasar el mouse */
+    color: #fff;
 }
 
-/* Otras clases */
-.navbar-brand, .nav-link {
-    margin-top: 1%;
-    margin-block-end: 1%;
-    color: #000000 !important;
-}
-
-.nav-link:hover {
-    background-color: #3b5c63;
-    color: white !important;
-}
-
-
-/* Estilos para la Barra lateral*/
+/* Barra lateral */
 .Barralateral {
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se coloquen en columna */
+    flex-direction: column; /* Asegura disposición en columna */
     width: 16rem;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    background: #7aacb2;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background: #7aacb2; /* Color principal */
     border-right: 1px solid gray;
-}
-.Barralateral ul{
-    list-style: none;
-    padding: 1rem 2rem;
+    position: fixed; /* Fija la barra lateral */
+    top: 0;
+    left: 0;
+    padding-top: 4rem; /* Espaciado para evitar solaparse con la navbar */
+    overflow-y: auto; /* Scroll si el contenido es mayor al alto */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-.Barralateral li{
+.Barralateral ul {
+    list-style: none;
+    padding: 1rem;
+}
+
+.Barralateral li {
     margin-bottom: 1rem;
     color: white;
     padding: 10px;
     text-decoration: none;
     border-radius: 4px;
-    margin-left: auto; /* Empuja el botón hacia el final de la barra */
+    margin-left: auto;
+    text-align: center; /* Centra el texto */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
 }
-.Barralateral li:hover{
-    background-color: #3b5c63;
-    color: white !important;
+.Barralateral li:hover {
+    background-color: #3b5c63; /* Color al pasar el mouse */
+    color: white;
 }
-.Barralateral a{
+
+.Barralateral a {
     text-decoration: none;
-    &.active{
-        background-color: #d87d6d;
-    }
-}
-.lateral{
-    display: flex;
-}
-*{
-    margin: 0;
-    padding: 0;
+    color: inherit; /* Usa el color del contenedor */
 }
 
-/*Estilos para el Contenido interno*/
-.Contenido{
-    width: 100%;
-    padding: 1rem 2rem;
+/* Contenido */
+.Contenido {
+    margin-left: 16rem; /* Desplaza el contenido para dejar espacio a la barra lateral */
+    padding: 5rem 2rem 2rem; /* Ajusta para evitar solaparse con la navbar */
+    width: calc(100% - 16rem); /* Resta el ancho de la barra lateral */
+    min-height: 100vh; /* Asegura que el contenido ocupe toda la altura */
+    background-color: #f3f8f8; /* Fondo claro */
 }
 
+.Contenido h1 {
+    text-align: center;
+    color: #4d868d; /* Tono oscuro de la paleta */
+    margin-bottom: 2rem;
+}
+
+/* Cajas internas */
+.cajas {
+    background: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 2rem;
+}

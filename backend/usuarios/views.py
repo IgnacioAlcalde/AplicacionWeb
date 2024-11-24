@@ -33,7 +33,10 @@ class TareasView(viewsets.ModelViewSet):
 class IntegranteCuadrillaView(viewsets.ModelViewSet):    
     serializer_class = IntegranteCuadrillaSerializer
     queryset = IntegranteCuadrilla.objects.all()
-    
+
+class TicketsView(viewsets.ModelViewSet):
+    serializer_class = TicketsSerializer
+    queryset = Tickets.objects.all()
 
 # Vista para manejo de login
 @api_view(['POST'])

@@ -12,6 +12,7 @@ export const getAllIncidencias = () => UsuariosApi.get('incidencias/');
 export const getAllCuadrillas = () => UsuariosApi.get('cuadrillas/');
 export const getAllIntegrantesCuadrillas = () => UsuariosApi.get('integrantescuadrillas/');
 export const getAllTareas = () => UsuariosApi.get('tareas/');
+export const getAllTickets = () => UsuariosApi.get('tickets/');
 
 //CREATE
 export const createUsuarios = (usuario) => UsuariosApi.post('usuarios/', usuario);
@@ -21,6 +22,7 @@ export const createCuadrillas = (cuadrilla) => UsuariosApi.post('cuadrillas/', c
 export const createIntegrantesCuadrillas = (integrantescuadrilla) => UsuariosApi.post('integrantescuadrillas/', integrantescuadrilla);
 export const createTareas = (tarea) => UsuariosApi.post('tareas/', tarea);
 export const createTiposFormularios = (tiposformulario) => UsuariosApi.post('tiposformulario/', tiposformulario);
+export const createTickets = (ticket) => UsuariosApi.post('tickets/', ticket);
 
 //DELETE
 export const deleteUsuarios = (id) => UsuariosApi.delete(`usuarios/${id}/`);
@@ -30,6 +32,7 @@ export const deleteCuadrillas = (id) => UsuariosApi.delete(`cuadrillas/${id}/`);
 export const deleteIntegrantesCuadrillas = (id) => UsuariosApi.delete(`integrantescuadrillas/${id}/`);
 export const deleteTareas = (id) => UsuariosApi.delete(`tareas/${id}/`);
 export const deleteTiposFormularios = (id) => UsuariosApi.delete(`tiposformulario/${id}/`);
+export const deleteTickets = (id) => UsuariosApi.delete(`tickets/${id}/`);
 
 //UPDATE
 export const updateUsuarios = (id, usuario) => UsuariosApi.put(`usuarios/${id}/`, usuario);
@@ -39,6 +42,7 @@ export const updateCuadrillas = (id, cuadrilla) => UsuariosApi.put(`cuadrillas/$
 export const updateIntegrantesCuadrillas = (id, integrantescuadrilla) => UsuariosApi.put(`integrantescuadrillas/${id}/`, integrantescuadrilla);
 export const updateTareas = (id, tarea) => UsuariosApi.put(`tareas/${id}/`, tarea);
 export const updateTiposFormularios = (id, tiposformulario) => UsuariosApi.put(`tiposformulario/${id}/`, tiposformulario);
+export const updateTickets = (id, ticket) => UsuariosApi.put(`tickets/${id}/`, ticket);
 
 //GET BY ID
 export const getUsuario = (id) => UsuariosApi.get(`usuarios/${id}`);
@@ -48,3 +52,4 @@ export const getCuadrilla = (id) => UsuariosApi.get(`cuadrillas/${id}`);
 export const getIntegrantesCuadrilla = (id) => UsuariosApi.get(`integrantescuadrillas/${id}`);
 export const getTarea = (id) => UsuariosApi.get(`tareas/${id}`);
 export const getTipoFormulario = (id) => UsuariosApi.get(`tiposformulario/${id}`);
+export const getTicket = (id) => UsuariosApi.get(`tickets/${id}`);
