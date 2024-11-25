@@ -41,22 +41,14 @@ export default function Directorobra() {
                 to="crear-cuadrillas"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">✏️</span> Asignar Cuadrillas
+                <span className="icon">✏️</span> Crear Cuadrillas
               </Link>
             </li>
             <hr/>
-            <li>
-              <Link
-                to="crear-tareas"
-                className='text-black rounded w-100 d-inline-block px-4'
-              >
-                <span className="icon">✏️</span> Crear tareas
-              </Link>
-            </li>
           </ul>
         </div>
         
-        <div className="Contenido">
+        <div className="Contenido mt-4">
           <Outlet />
         </div>
       </div>

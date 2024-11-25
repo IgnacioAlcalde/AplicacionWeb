@@ -201,25 +201,8 @@ export default function CrearFormulario() {
             <span className="text-danger">{errors.imagen.message}</span>
           )}
         </div>
-
         <div className="form-group">
-          <label htmlFor="estado">Estado:</label>
-          <select
-            className="form-control"
-            id="estado"
-            {...register("estado", { required: "El estado es obligatorio" })}
-          >
-            <option value="">Seleccione un estado</option>
-            <option value="Sin iniciar">Sin iniciar</option>
-            <option value="En progreso">En progreso</option>
-            <option value="Finalizado">Finalizado</option>
-          </select>
-          {errors.estado && (
-            <span className="text-danger">{errors.estado.message}</span>
-          )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="gestor">Gestor Territorial:</label>
+          <label htmlFor="gestor">Encargado:</label>
           <select
             className="form-control"
             id="gestor"

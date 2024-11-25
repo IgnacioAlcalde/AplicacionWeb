@@ -63,7 +63,7 @@ export default function Directormunicipalidad() {
             </li>
           </ul>
         </div>
-        <div className="Contenido">
+        <div className="Contenido mt-4">
           <Outlet />
         </div>
       </div>

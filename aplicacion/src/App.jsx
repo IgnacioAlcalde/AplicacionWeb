@@ -17,7 +17,6 @@ import CargaMasiva from './componentes/director_municipalidad/carga_masiva.jsx';
 // Componentes Director de obra
 import DirectorObra from "./paginas/inicios/director_obras.jsx";
 import InicioObras from "./componentes/director_obra/inicio.jsx";
-import CrearTareas from "./componentes/director_obra/crear_tareas.jsx";
 import CrearCuadrillas from "./componentes/director_obra/crear_cuadrillas.jsx";
 import AsignarCuadrilla from "./componentes/director_obra/asignar_cuadrilla.jsx";
 // Componentes Gestor Territorial
@@ -33,6 +32,7 @@ import DetallesTareasCuadrillas from "./componentes/cuadrilla/tareas/detalles.js
 //General
 import ListaIncidencias from "./componentes/general/listado_incidencias.jsx";
 import EditarIncidencias from "./componentes/general/editar_incidencias.jsx"
+import TareasIncidencias from "./componentes/general/tareas_incidencias.jsx"
 //---------------------------------------------------------------------------------------------
 function Aplicacion() {
   return (
@@ -56,15 +56,16 @@ function Aplicacion() {
             <Route path='carga-masiva' element={<CargaMasiva/>}/>
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
             <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
+            <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />
           </Route>
           {/* Enrutamiento director de obras */}
           <Route path="director-obra" element={<DirectorObra />}>
             <Route path="inicio" element={<InicioObras />} />
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
             <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
-            <Route path="crear-tareas" element={<CrearTareas />} />
             <Route path="crear-cuadrillas" element={<CrearCuadrillas />} />
             <Route path="cuadrilla/:id" element={<AsignarCuadrilla />} />
+            <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />
           </Route>
           {/* Enrutamiento gestor territorial */}
           <Route path="gestor-territorial" element={<GestorTerritorial />}>
