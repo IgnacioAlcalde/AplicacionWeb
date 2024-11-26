@@ -10,7 +10,7 @@ import {IncidenciasPorTipo} from '../general/dashboard/tipos_incidencias';
 export default function () {
   return (
     <div className="text-black">
-      <div className="d-flex justify-content-between align-items-start mb-4 mt-4">
+      <div className="d-flex justify-content-between align-items-start mb-3 mt-4">
         {/*Mapa */}
         <div className="tarjeta flex-grow-1 shadow-sm" style={{ minWidth: '30%' }}>
           <div className="Mapa mx-2 py-3">

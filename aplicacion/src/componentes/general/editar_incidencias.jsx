@@ -41,7 +41,7 @@ export default function editar_incidencia() {
         try {
             await updateIncidencias(id, incidencia);
             alert('Incidencia actualizada exitosamente');
-            navigate('/listado-incidencias'); // Redirige al listado de incidencias
+            navigate('/director-obra/listado-incidencias'); // Redirige al listado de incidencias
         } catch (err) {
             setError('Error al actualizar la incidencia');
         }
@@ -52,7 +52,10 @@ export default function editar_incidencia() {
 
     return (
         <div className="card card-body text-black">
-            <h2 className="tituloh2">Editar Incidencia</h2>
+            <div className="d-flex justify-content-between align-items-start mb-3">
+                <h2 className="tituloh2">Editar Incidencia</h2>
+                <button className="btn btn-navegacion" onClick={() => navigate(-1)}>Cancelar</button>
+            </div>
             <hr />
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -112,7 +115,25 @@ export default function editar_incidencia() {
                         onChange={(e) => setIncidencia((prev) => ({ ...prev, imagenes: e.target.files[0] }))}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary mt-3">Guardar Cambios</button>
+                <div className="form-group">
+                    <label htmlFor="estado">Estado</label>
+                    <select
+                        id="estado"
+                        name="estado"
+                        value={incidencia.estado || ''}
+                        onChange={handleChange}
+                        className="form-control"
+                        required
+                    >
+                        <option value="">Seleccione un estado</option>
+                        <option value="Sin iniciar">Sin iniciar</option>
+                        <option value="En progreso">En progreso</option>
+                        <option value="Finalizado">Finalizado</option>
+                        <option value="Abandonado">Abandonado</option>
+                    </select>
+                </div>
+
+                <button type="submit" className="btn btn-navegacion mt-3">Guardar Cambios</button>
             </form>
         </div>
     );

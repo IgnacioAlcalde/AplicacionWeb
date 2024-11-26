@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
+import '../../componentes.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getAllIncidencias, deleteIncidencias} from '../../api/usuarios.api';
 import { useNavigate } from 'react-router-dom';
@@ -12,9 +13,14 @@ export default function listado_incidencias() {
     const [mostrarFiltros, setMostrarFiltros] = useState(false); // Estado para mostrar/ocultar filtros
     const navegar = useNavigate();
     const editarIncidencia = (id) => {
-        lert('Editar incidencia con ID: ' + id);
-        navegar(`/editar-incidencia/${id}`);
-    }
+        const basePath = window.location.pathname.split('/')[1];
+        navegar(`/${basePath}/editar-incidencias/${id}`);
+    };
+    const tareasIncidencia = (id) => {
+        const basePath = window.location.pathname.split('/')[1];
+        navegar(`/${basePath}/tareas-incidencias/${id}`);
+    };
+      
     // Cargar las incidencias desde el backend
     useEffect(() => {
         const fetchIncidencias = async () => {
@@ -71,8 +77,8 @@ export default function listado_incidencias() {
                             <option value="">Todos los estados</option>
                             <option value="Sin iniciar">Sin iniciar</option>
                             <option value="En progreso">En progreso</option>
-                            <option value="Completado">Completado</option>
-                            <option value="No Terminado">No terminado</option>
+                            <option value="Finalizado">Finalizado</option>
+                            <option value="Abandonado">Abandonado</option>
                         </select>
                         <input
                             type="date"
@@ -98,7 +104,7 @@ export default function listado_incidencias() {
                 <tbody>
                     {filtrarIncidencias().map((proyecto, index) => (
                         <tr key={index}>
-                            <td>{proyecto.titulo}</td>
+                            <td >{proyecto.titulo}</td>
                             <td>{proyecto.estado}</td>
                             <td>{proyecto.fecha}</td>
                             <td>{proyecto.localizacion}</td>
@@ -108,7 +114,7 @@ export default function listado_incidencias() {
                                     className="btn btn-navegacion"
                                     onClick={() => editarIncidencia(proyecto.id)}
                                 >Editar</button>
-                                <button className="btn btn-navegacion ms-2" onClick={async () =>{
+                                <button className="btn btn-navegacion mx-2" onClick={async () =>{
                                 const accepted = window.confirm("Estas seguro que deseas eliminar la incidencia?"); 
                                 if (accepted) { 
                                     await deleteIncidencias(proyecto.id); 
@@ -117,6 +123,7 @@ export default function listado_incidencias() {
                                 }else{ alert("Operació́n cancelada"); 
                                         
                                     }}}>Eliminar</button>
+                                <button className="btn btn-navegacion mt-2" onClick={() => tareasIncidencia(proyecto.id)}>Tareas</button>
                             </td>
                         </tr>
                     ))}

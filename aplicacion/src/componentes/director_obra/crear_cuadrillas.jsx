@@ -70,7 +70,8 @@ export default function crear_cuadrillas() {
           </button>
         )}
       </div>
-      <div className="mt-4">
+      <hr/>
+      <div className="">
         {/* Mostrar solo cuando se está en modo edición */}
         {isEditing && (
           <>

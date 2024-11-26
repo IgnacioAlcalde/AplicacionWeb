@@ -37,7 +37,7 @@ export default function CuadrilasDashboard() {
               </li>
             </ul>
           </div>
-          <div className="Contenido">
+          <div className="Contenido mt-4">
             <Outlet />
           </div>
         </div>
