@@ -19,6 +19,7 @@ import DirectorObra from "./paginas/inicios/director_obras.jsx";
 import InicioObras from "./componentes/director_obra/inicio.jsx";
 import CrearCuadrillas from "./componentes/director_obra/crear_cuadrillas.jsx";
 import AsignarCuadrilla from "./componentes/director_obra/asignar_cuadrilla.jsx";
+import Documentacion from "./componentes/director_obra/documentacion.jsx";
 // Componentes Gestor Territorial
 import GestorTerritorial from "./paginas/inicios/gestor_territorial.jsx";
 import InicioGestor from "./componentes/gestor_territorial/inicio.jsx";
@@ -66,6 +67,7 @@ function Aplicacion() {
             <Route path="crear-cuadrillas" element={<CrearCuadrillas />} />
             <Route path="cuadrilla/:id" element={<AsignarCuadrilla />} />
             <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />
+            <Route path="documentacion" element={<Documentacion />} />
           </Route>
           {/* Enrutamiento gestor territorial */}
           <Route path="gestor-territorial" element={<GestorTerritorial />}>

@@ -59,6 +59,12 @@ export default function () {
           </div>
         </div>
       </div>
+      <footer className="footer">
+        <p>¿Necesitas ayuda? Contáctanos en: <br />
+           <strong>Correo:</strong> soporte_urban@gmail.com <br />
+           <strong>Teléfono:</strong> +56 2 2314 8900
+        </p>
+      </footer>
     </div>
   );
 }

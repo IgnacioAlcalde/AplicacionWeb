@@ -45,6 +45,15 @@ export default function Directorobra() {
               </Link>
             </li>
             <hr/>
+            <li>
+              <Link
+                to="documentacion"              
+                className='text-black rounded w-100 d-inline-block px-4'
+              >
+                <span className="icon">📚</span> Documentación
+              </Link>
+            </li>
+            <hr/>
           </ul>
         </div>
         

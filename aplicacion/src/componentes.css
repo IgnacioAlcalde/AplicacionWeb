@@ -54,3 +54,10 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+footer {
+  background-color: #fff; /* Color de fondo */
+  border-radius: 20px; /* Crea la forma ovalada */
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
