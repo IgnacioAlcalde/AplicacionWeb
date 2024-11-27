@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 
 formularioss_url_patterns = [
     path('api/formularios/', FormularioAPI.as_view(), name='formulario_api'),
-    path('api/formularios/<str:id>/', FormularioDetalleAPI.as_view(), name='formulario_detalle'),  
+    path('api/formularios/<str:_id>/', FormularioAPI.as_view(), name='formulario_api_id'),
+    path('api/formularios/detalle/<str:_id>/', FormularioDetalleAPI.as_view(), name='formulario_detalle'),  
     
 
 ]

@@ -62,6 +62,21 @@ class FormularioAPI(APIView):
             return Response({"message": "Formulario agregado correctamente", "file_url": full_url}, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    def delete(self, request, _id):
+        try:
+            # Convertir el ID de string a ObjectId
+            object_id = ObjectId(_id)
+
+            # Buscar y eliminar el formulario
+            result = MONGO_DB['formularios'].delete_one({"_id": object_id})
+
+            # Verificar si se eliminó algún documento
+            if result.deleted_count == 0:
+                return Response({"message": "Formulario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+
+            return Response({"message": "Formulario eliminado correctamente"}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class FormularioDetalleAPI(APIView):
     def get(self, request, id):
@@ -76,3 +91,4 @@ class FormularioDetalleAPI(APIView):
             return Response({"message": "Formulario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+

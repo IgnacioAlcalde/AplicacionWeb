@@ -21,4 +21,19 @@ const submitFormulario = async (formData) => {
     }
 };
 
-export { api, submitFormulario };
+const obtencionFormularios = async () => {
+    try {
+        
+        const response = await api.get('');
+        return response.data; 
+    } catch (error) {
+        console.error('Error al obtener los formularios:', error);
+        throw error;
+    }
+};
+
+const borrarFormulario = (_id) => api.delete(`${_id}/`);
+
+
+
+export { api, submitFormulario, obtencionFormularios, borrarFormulario };
