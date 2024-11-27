@@ -33,6 +33,7 @@ import DetallesTareasCuadrillas from "./componentes/cuadrilla/tareas/detalles.js
 import ListaIncidencias from "./componentes/general/listado_incidencias.jsx";
 import EditarIncidencias from "./componentes/general/editar_incidencias.jsx"
 import TareasIncidencias from "./componentes/general/tareas_incidencias.jsx"
+import GenerarTIcket from "./componentes/general/generar_ticket.jsx"
 //---------------------------------------------------------------------------------------------
 function Aplicacion() {
   return (
@@ -75,6 +76,7 @@ function Aplicacion() {
           {/* Enrutamiento cuadrillas */}
           <Route path='cuadrilla' element={<Cuadrilla/>}>
               <Route path="inicio" element={<InicioCuadrilla/>} />
+              <Route path='generar-ticket' element={<GenerarTIcket/>}/>
               <Route path='incidencias' element={<IncidenciasCuadrillas/>}/>
               <Route path='tareas' element={<TareasCuadrillas/>}/>
               <Route path='detalles' element={<DetallesTareasCuadrillas/>}/>
