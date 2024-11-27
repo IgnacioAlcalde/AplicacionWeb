@@ -1,11 +1,11 @@
-import '../../../componentes.css';
-import {getAllIncidencias} from '../../../api/usuarios.api';
-import React, { useEffect, useState } from 'react';
-import L from 'leaflet'; // Biblioteca de Leaflet
-import 'leaflet/dist/leaflet.css'; // Estilos de Leaflet
-import axios from 'axios'; // Para solicitudes a la API
-import '../../../App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "../../../componentes.css";
+import { obtencionFormularios } from "../../../api/api_formularios";
+import React, { useEffect, useState } from "react";
+import L from "leaflet"; // Biblioteca de Leaflet
+import "leaflet/dist/leaflet.css"; // Estilos de Leaflet
+import axios from "axios"; // Para solicitudes a la API
+import "../../../App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export function Mapa() {
   const [puntosDeInteres, setPuntosDeInteres] = useState([]);
@@ -14,8 +14,8 @@ export function Mapa() {
     const fetchIncidencias = async () => {
       try {
         // Llama a tu backend para obtener las incidencias
-        const response = await getAllIncidencias(); // Ajusta la URL según tu API
-        const incidencias = response.data;
+        const response = await obtencionFormularios(); // Ajusta la URL según tu API
+        const incidencias = response;
 
         // Promesas para geocodificar cada incidencia
         const coordenadasPromises = incidencias.map(async (incidencia) => {
@@ -45,7 +45,7 @@ export function Mapa() {
         const resultados = await Promise.all(coordenadasPromises);
         setPuntosDeInteres(resultados.filter((punto) => punto !== null)); // Filtrar nulos
       } catch (error) {
-        console.error('Error al obtener incidencias:', error);
+        console.error("Error al obtener incidencias:", error);
       }
     };
 
@@ -55,18 +55,16 @@ export function Mapa() {
   useEffect(() => {
     if (puntosDeInteres.length > 0) {
       // Crear o actualizar el mapa
-      const map = L.map('map').setView([-33.43107, -70.60454], 13);
+      const map = L.map("map").setView([-33.43107, -70.60454], 13);
 
       // Cargar los mosaicos de OpenStreetMap
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
       // Agregar marcadores al mapa
       puntosDeInteres.forEach(({ lat, lng, titulo }) => {
-        L.marker([lat, lng])
-          .addTo(map)
-          .bindPopup(`<b>${titulo}</b>`);
+        L.marker([lat, lng]).addTo(map).bindPopup(`<b>${titulo}</b>`);
       });
 
       // Limpiar el mapa al desmontar el componente
@@ -77,8 +75,8 @@ export function Mapa() {
   }, [puntosDeInteres]);
 
   return (
-      <div>
-        <div id="map" style={{ height: '460px', width: '100%' }}></div>
-      </div>
+    <div>
+      <div id="map" style={{ height: "460px", width: "100%" }}></div>
+    </div>
   );
 }

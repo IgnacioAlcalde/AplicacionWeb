@@ -56,14 +56,14 @@ function Aplicacion() {
             <Route path='editar-usuario/:id' element={<EditarUsuario/>}/>
             <Route path='carga-masiva' element={<CargaMasiva/>}/>
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
-            <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
+            <Route path="editar-incidencias/:_id" element={<EditarIncidencias/>} />
             <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />
           </Route>
           {/* Enrutamiento director de obras */}
           <Route path="director-obra" element={<DirectorObra />}>
             <Route path="inicio" element={<InicioObras />} />
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
-            <Route path="editar-incidencias/:id" element={<EditarIncidencias/>} />
+            <Route path="editar-incidencias/:_id" element={<EditarIncidencias/>} />
             <Route path="crear-cuadrillas" element={<CrearCuadrillas />} />
             <Route path="cuadrilla/:id" element={<AsignarCuadrilla />} />
             <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />

@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Chart } from 'chart.js/auto'; // Importar Chart.js
-import { getAllIncidencias } from '../../../api/usuarios.api'; // Asegúrate de ajustar la ruta según tu proyecto
+import React, { useEffect, useRef, useState } from "react";
+import { Chart } from "chart.js/auto"; // Importar Chart.js
+import { obtencionFormularios } from "../../../api/api_formularios";
 
 export function EstadoIncidencias() {
   const [incidencias, setIncidencias] = useState([]);
@@ -10,10 +10,10 @@ export function EstadoIncidencias() {
   useEffect(() => {
     const fetchIncidencias = async () => {
       try {
-        const response = await getAllIncidencias(); // Llamada al backend
-        setIncidencias(response.data); // Guardar las incidencias en el estado
+        const response = await obtencionFormularios(); // Llamada al backend
+        setIncidencias(response); // Guardar las incidencias en el estado
       } catch (error) {
-        console.error('Error al obtener incidencias:', error);
+        console.error("Error al obtener incidencias:", error);
       }
     };
 
@@ -33,7 +33,13 @@ export function EstadoIncidencias() {
         datasets: [
           {
             data: Object.values(estadosCount), // Cantidad por estado
-            backgroundColor: ['#99c2c7', '#7aacb2', '#4d868d', '#3b5c63', '#c3dcde'],
+            backgroundColor: [
+              "#99c2c7",
+              "#7aacb2",
+              "#4d868d",
+              "#3b5c63",
+              "#c3dcde",
+            ],
           },
         ],
       };
@@ -44,15 +50,15 @@ export function EstadoIncidencias() {
       }
 
       // Crear el gráfico
-      const ctx = chartRef.current.getContext('2d');
+      const ctx = chartRef.current.getContext("2d");
       chartInstance.current = new Chart(ctx, {
-        type: 'doughnut',
+        type: "doughnut",
         data: dataFormatted,
         options: {
           responsive: true,
           plugins: {
             legend: {
-              position: 'bottom',
+              position: "bottom",
             },
           },
         },
@@ -61,7 +67,7 @@ export function EstadoIncidencias() {
   }, [incidencias]);
 
   return (
-    <div style={{ width: '400px',height: '100%'}}>
+    <div style={{ width: "400px", height: "100%" }}>
       <canvas ref={chartRef}></canvas>
     </div>
   );

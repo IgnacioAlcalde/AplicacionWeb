@@ -62,12 +62,26 @@ class FormularioAPI(APIView):
             return Response({"message": "Formulario agregado correctamente", "file_url": full_url}, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    def delete(self, request, _id):
+        try:
+           
+            object_id = ObjectId(_id)
+
+            
+            result = MONGO_DB['formularios'].delete_one({"_id": object_id})
+
+           
+            if result.deleted_count == 0:
+                return Response({"message": "Formulario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+
+            return Response({"message": "Formulario eliminado correctamente"}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class FormularioDetalleAPI(APIView):
-    def get(self, request, id):
-        try:
-            # Convertir el id de string a ObjectId
-            formulario_id = ObjectId(id)
+    def get(self, request, _id):
+        try:  
+            formulario_id = ObjectId(_id)
             formulario = MONGO_DB['formularios'].find_one({"_id": formulario_id})
 
             if formulario:
@@ -75,4 +89,26 @@ class FormularioDetalleAPI(APIView):
                 return Response(formulario)
             return Response({"message": "Formulario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
+            print(f"Error al obtener formulario: {e}")  
+            return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+    def put(self, request, _id):
+        try:
+            formulario_id = ObjectId(_id)
+            formulario_data = request.data 
+            
+            if '_id' in formulario_data:
+                del formulario_data['_id']
+
+            result = MONGO_DB['formularios'].update_one(
+                {"_id": formulario_id},
+                {"$set": formulario_data}  
+            )
+            
+            if result.matched_count == 1:
+                return Response({"message": "Formulario actualizado exitosamente"})
+            return Response({"message": "Formulario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+        
+        except Exception as e:
+            print(f"Error al actualizar formulario: {e}")  
             return Response({'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
