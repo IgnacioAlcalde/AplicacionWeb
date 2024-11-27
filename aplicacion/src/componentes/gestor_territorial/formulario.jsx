@@ -222,8 +222,9 @@ const Formulario = () => {
       <hr />
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Título:</label>
+          <label htmlFor="titulo">Título:</label>
           <input
+            className="form-control"
             type="text"
             name="titulo"
             value={titulo}
@@ -255,6 +256,7 @@ const Formulario = () => {
         <div className="form-group">
           <label>Fecha:</label>
           <input
+            className="form-control"
             type="date"
             name="fecha"
             value={fecha}
@@ -268,6 +270,7 @@ const Formulario = () => {
             name="localizacion"
             value={localizacion}
             onChange={handleChange}
+            className="form-control"
           />
         </div>
         <div className="form-group">
@@ -322,7 +325,7 @@ const Formulario = () => {
             placeholder="00000000-0"
             value={run}
             onChange={handleChange}
-            className={errores.run ? "input-error" : ""}
+            className= {`form-control ${errores.run ? "input-error" : ""}`}
           />
           {errores.run && <small className="error-text">{errores.run}</small>}
         </div>
@@ -333,7 +336,7 @@ const Formulario = () => {
             name="correo"
             value={correo}
             onChange={handleChange}
-            className={errores.correo ? "input-error" : ""}
+            className={`form-control ${errores.correo ? "input-error" : ""}`}
           />
           {errores.correo && (
             <small className="error-text">{errores.correo}</small>
