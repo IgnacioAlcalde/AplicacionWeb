@@ -23,7 +23,7 @@ export default function CuadrilasDashboard() {
                   to="inicio"
                   className='text-black rounded w-100 d-inline-block px-4'
                   >
-                  <span className="icon">🏠</span> Inicio
+                  <span className="icon">📊</span> Inicio
                 </Link>
               </li>
               <hr/>
@@ -41,7 +41,7 @@ export default function CuadrilasDashboard() {
                   to="generar-ticket"
                   className='text-black rounded w-100 d-inline-block px-4'
                   >
-                  <span className="icon">📋</span>Tickets de soporte
+                  <span className="icon">🔧</span>Tickets de soporte
                 </Link>
               </li>
             </ul>

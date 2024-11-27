@@ -36,6 +36,14 @@ export default function Gestorterritorial() {
               </Link>
             </li>
             <hr/>
+              <li>
+                <Link
+                  to="generar-ticket"
+                  className='text-black rounded w-100 d-inline-block px-4'
+                  >
+                  <span className="icon">🔧</span>Tickets de soporte
+                </Link>
+              </li>
           </ul>
         </div>
         <div className="Contenido mt-4">

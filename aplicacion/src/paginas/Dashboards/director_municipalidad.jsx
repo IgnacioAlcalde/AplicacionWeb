@@ -22,7 +22,7 @@ export default function Directormunicipalidad() {
                 to="inicio"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">🏠</span>Inicio
+                <span className="icon">📊</span>Inicio
               </Link>
             </li>
             <hr/>
@@ -37,19 +37,19 @@ export default function Directormunicipalidad() {
             <hr/>
             <li>
               <Link
-                to="crear-usuarios"
+                to="crear-rol"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">👤</span>Crear usuarios
+                <span className="icon">🪪</span>Crear Rol
               </Link>
             </li>
             <hr/>
             <li>
               <Link
-                to="crear-rol"
+                to="crear-usuarios"
                 className='text-black rounded w-100 d-inline-block px-4'
               >
-                <span className="icon">👤</span>Crear Rol
+                <span className="icon">👤</span>Crear usuarios
               </Link>
             </li>
             <hr/>
@@ -61,6 +61,15 @@ export default function Directormunicipalidad() {
                 <span className="icon">📋👤</span>Listado de usuarios
               </Link>
             </li>
+            <hr/>
+              <li>
+                <Link
+                  to="generar-ticket"
+                  className='text-black rounded w-100 d-inline-block px-4'
+                  >
+                  <span className="icon">🔧</span>Tickets de soporte
+                </Link>
+              </li>
           </ul>
         </div>
         <div className="Contenido mt-4">
