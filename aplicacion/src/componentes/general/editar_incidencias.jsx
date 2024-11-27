@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import {
   editarFormulario,
   obtenerFormularioDetalle,
@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function editar_incidencia() {
   const { _id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [incidencia, setIncidencia] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -44,7 +45,15 @@ export default function editar_incidencia() {
     try {
       await editarFormulario(_id, incidencia);
       alert("Incidencia actualizada exitosamente");
-      navigate("/director-obra/listado-incidencias");
+      let basePath = "";
+      if (location.pathname.includes("director-municipalidad")) {
+        basePath = "/director-municipalidad";
+      } else if (location.pathname.includes("director-obra")) {
+        basePath = "/director-obra";
+      }
+
+      // Redirigir al listado de incidencias correspondiente
+      navigate(`${basePath}/listado-incidencias`);
     } catch (err) {
       setError("Error al actualizar la incidencia");
     }

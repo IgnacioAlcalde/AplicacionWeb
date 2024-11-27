@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Chart from 'chart.js/auto';
-import { getAllTipoFormularios, getAllIncidencias } from '../../../api/usuarios.api';
-
+import React, { useEffect, useRef, useState } from "react";
+import Chart from "chart.js/auto";
+import { getAllTipoFormularios } from "../../../api/usuarios.api";
+import { obtencionFormularios } from "../../../api/api_formularios";
 
 export const IncidenciasPorTipo = () => {
   const chartContainer = useRef(null);
@@ -17,16 +17,20 @@ export const IncidenciasPorTipo = () => {
         // Obtener los datos de tipos y de incidencias
         const [tiposResponse, incidenciasResponse] = await Promise.all([
           getAllTipoFormularios(),
-          getAllIncidencias(),
+          obtencionFormularios(),
         ]);
 
         const tipos = tiposResponse.data;
-        const incidencias = incidenciasResponse.data;
+        const incidencias = incidenciasResponse;
+        console.log("Tipos:", tipos);
+        console.log("Incidencias:", incidencias);
 
         // Contar incidencias por tipo
         const tipoIncidenciaCounts = tipos.map((tipo) => ({
           nombre: tipo.nombre,
-          count: incidencias.filter((incidencia) => incidencia.tipo === tipo.id).length,
+          count: incidencias.filter(
+            (incidencia) => incidencia.tipoFormulario === tipo.nombre
+          ).length,
         }));
 
         // Preparar datos para el gráfico
@@ -35,27 +39,33 @@ export const IncidenciasPorTipo = () => {
 
         // Verificar que el canvas está disponible antes de crear el gráfico
         if (chartContainer.current) {
-          const ctx = chartContainer.current.getContext('2d');
+          const ctx = chartContainer.current.getContext("2d");
 
           if (chartInstance.current) {
             chartInstance.current.destroy(); // Destruir el gráfico anterior
           }
 
           chartInstance.current = new Chart(ctx, {
-            type: 'bar',
+            type: "bar",
             data: {
               labels,
               datasets: [
                 {
-                  label: 'Cantidad de Incidencias',
+                  label: "Cantidad de Incidencias",
                   data,
-                  backgroundColor: ['#99c2c7', '#7aacb2', '#4d868d', '#3b5c63', '#c3dcde'],
+                  backgroundColor: [
+                    "#99c2c7",
+                    "#7aacb2",
+                    "#4d868d",
+                    "#3b5c63",
+                    "#c3dcde",
+                  ],
                 },
               ],
             },
             options: {
               responsive: true,
-              indexAxis: 'y', // Hace las barras horizontales
+              indexAxis: "y", // Hace las barras horizontales
               plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -66,10 +76,10 @@ export const IncidenciasPorTipo = () => {
               },
               scales: {
                 x: {
-                  title: { display: true, text: 'Cantidad de Incidencias' },
+                  title: { display: true, text: "Cantidad de Incidencias" },
                 },
                 y: {
-                  title: { display: true, text: 'Tipos de Formularios' },
+                  title: { display: true, text: "Tipos de Formularios" },
                 },
               },
             },
@@ -78,8 +88,8 @@ export const IncidenciasPorTipo = () => {
 
         setLoading(false);
       } catch (err) {
-        console.error('Error al obtener datos:', err);
-        setError('Error al cargar los datos.');
+        console.error("Error al obtener datos:", err);
+        setError("Error al cargar los datos.");
         setLoading(false);
       }
     };
@@ -103,8 +113,8 @@ export const IncidenciasPorTipo = () => {
   }
 
   return (
-    <div style={{width: '90%', height: '100%'}}>
-      <canvas className= 'mx-4' ref={chartContainer}></canvas>
+    <div style={{ width: "90%", height: "100%" }}>
+      <canvas className="mx-4" ref={chartContainer}></canvas>
     </div>
   );
 };
