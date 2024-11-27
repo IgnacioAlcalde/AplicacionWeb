@@ -11,5 +11,5 @@ formularioss_url_patterns = [
     
 
 ]
-if settings.DEBUG:  # Solo en desarrollo
+if settings.DEBUG: 
     formularioss_url_patterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

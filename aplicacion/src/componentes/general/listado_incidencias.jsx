@@ -14,10 +14,14 @@ export default function listado_incidencias() {
   const [filtroNombre, setFiltroNombre] = useState("");
   const [filtroEstado, setFiltroEstado] = useState("");
   const [filtroInicio, setFiltroInicio] = useState("");
-  const [mostrarFiltros, setMostrarFiltros] = useState(false); // Estado para mostrar/ocultar filtros
+  const [mostrarFiltros, setMostrarFiltros] = useState(false);
   const navegar = useNavigate();
   const editarIncidencia = (_id) => {
+    console.log(_id);
     const basePath = window.location.pathname.split("/")[1];
+    console.log("Base Path:", basePath);
+    const newUrl = `/${basePath}/editar-incidencias/${_id}`;
+    console.log(newUrl);
     navegar(`/${basePath}/editar-incidencias/${_id}`);
   };
   const tareasIncidencia = (id) => {
@@ -44,7 +48,7 @@ export default function listado_incidencias() {
   const filtrarIncidencias = () => {
     console.log(proyectos);
     if (!proyectos) {
-      return []; // Si proyectos es undefined, retornamos una lista vacía
+      return [];
     }
     return proyectos.filter((proyecto) => {
       const matchesNombre = proyecto.titulo

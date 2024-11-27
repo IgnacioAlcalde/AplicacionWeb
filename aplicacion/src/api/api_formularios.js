@@ -1,20 +1,19 @@
 import axios from 'axios';
 
-// Configura Axios con la URL base para tu API
 const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/formularios/api/formularios/', // Esta es la URL base de tu API
+    baseURL: 'http://127.0.0.1:8000/formularios/api/formularios/', 
 });
 
-// Realiza un método de POST para enviar el formulario con 'formData'
+
 const submitFormulario = async (formData) => {
     try {
-        // Envía la solicitud POST con los datos del formulario y la imagen (si la hay)
+        
         const response = await api.post('', formData, {
             headers: {
-                'Content-Type': 'multipart/form-data',  // Es necesario para enviar archivos
+                'Content-Type': 'multipart/form-data',  
             },
         });
-        return response.data;  // Regresa los datos de la respuesta
+        return response.data;  
     } catch (error) {
         console.error('Error en la API:', error);
         throw error;
@@ -34,6 +33,27 @@ const obtencionFormularios = async () => {
 
 const borrarFormulario = (_id) => api.delete(`${_id}/`);
 
+const obtenerFormularioDetalle = async (_id) => {
+    try {
+        const url = `http://127.0.0.1:8000/formularios/api/formularios/detalle/${_id}/`;
 
+      const response = await axios.get(url);
+      return response.data;
+    } catch (error) {
+      console.error('Error al obtener formulario:', error);
+      throw error;
+    }
+  };
 
-export { api, submitFormulario, obtencionFormularios, borrarFormulario };
+  const editarFormulario = async (_id, formularioData) => {
+    try {
+      const url = `http://127.0.0.1:8000/formularios/api/formularios/detalle/${_id}/`;
+      const response = await axios.put(url, formularioData);
+      return response.data;  
+    } catch (error) {
+      console.error('Error al editar formulario:', error);
+      throw error;
+    }
+  };
+
+export { api, submitFormulario, obtencionFormularios, borrarFormulario, obtenerFormularioDetalle, editarFormulario };
