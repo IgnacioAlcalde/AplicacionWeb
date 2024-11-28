@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { editarFormulario } from "../../api/api_formularios";
 import { useParams, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../../componentes.css";
 import "../../App.css";
 import {
@@ -8,11 +9,11 @@ import {
   getAllTareas,
   createTareas,
   deleteTareas,
-  updateTareas
+  updateTareas,
 } from "../../api/usuarios.api";
 
 export default function CrearTareas() {
-  const { id } = useParams(); // ID de la incidencia
+  const { _id } = useParams(); // ID de la incidencia
   const navigate = useNavigate();
 
   const [cuadrillas, setCuadrillas] = useState([]); // Cuadrillas disponibles
@@ -30,34 +31,33 @@ export default function CrearTareas() {
       try {
         const cuadrillasData = await getAllCuadrillas();
         setCuadrillas(cuadrillasData.data);
-  
+        console.log("cuadrillas", cuadrillasData.data);
         const tareasData = await getAllTareas();
         const tareasFiltradas = tareasData.data.filter(
-          (tarea) => parseInt(tarea.incidencia) === parseInt(id)
+          (tarea) => parseInt(tarea.incidencia) === parseInt(_id)
         );
         setTareas(tareasFiltradas);
       } catch (error) {
         console.error("Error al cargar los datos:", error);
       }
     };
-  
-    console.log("ID de la incidencia:", id);
-    if (!id || isNaN(id)) {
-      console.error("El ID de la incidencia no es válido.");
-      return;
-    }
-  
+
     cargarDatos();
-  }, [id]);
-  
+  }, [_id]);
+
   const handleGuardarTarea = async (e) => {
     e.preventDefault();
-  
-    if (!nombreTarea || !descripcionTarea || !cuadrillaSeleccionada || (editando && !estado)) {
+
+    if (
+      !nombreTarea ||
+      !descripcionTarea ||
+      !cuadrillaSeleccionada ||
+      (editando && !estado)
+    ) {
       alert("Por favor complete todos los campos.");
       return;
     }
-  
+
     try {
       if (editando) {
         await updateTareas(idTareaEditando, {
@@ -65,7 +65,7 @@ export default function CrearTareas() {
           descripcion: descripcionTarea,
           cuadrilla: parseInt(cuadrillaSeleccionada),
           estado,
-          incidencia: parseInt(id),
+          incidencia: _id,
         });
         alert("Tarea actualizada correctamente.");
       } else {
@@ -73,24 +73,32 @@ export default function CrearTareas() {
           titulo: nombreTarea,
           descripcion: descripcionTarea,
           cuadrilla: parseInt(cuadrillaSeleccionada),
-          incidencia: parseInt(id),
+          incidencia: _id,
         });
+
         alert("Tarea creada correctamente.");
       }
-  
+      const formularioData = {
+        listaTareas: [nombreTarea],
+      };
+
+      await editarFormulario(_id, formularioData);
+
       const tareasData = await getAllTareas();
       const tareasFiltradas = tareasData.data.filter(
-        (tarea) => parseInt(tarea.incidencia) === parseInt(id)
+        (tarea) => parseInt(tarea.incidencia) === parseInt(_id)
       );
       setTareas(tareasFiltradas);
-  
+
       resetFormulario();
     } catch (error) {
-      console.error("Detalles del error del backend:", error.response?.data || error.message);
+      console.error(
+        "Detalles del error del backend:",
+        error.response?.data || error.message
+      );
       alert("Error al guardar tarea.");
     }
   };
-  
 
   // Manejar edición
   const handleEditarTarea = (tarea) => {
@@ -122,7 +130,9 @@ export default function CrearTareas() {
     try {
       await deleteTareas(tareaId);
       const tareasData = await getAllTareas();
-      const tareasFiltradas = tareasData.data.filter(tarea => tarea.incidencia === parseInt(id));
+      const tareasFiltradas = tareasData.data.filter(
+        (tarea) => tarea.incidencia === parseInt(id)
+      );
       setTareas(tareasFiltradas);
       alert("Tarea eliminada correctamente.");
     } catch (error) {
@@ -228,28 +238,35 @@ export default function CrearTareas() {
             </tr>
           </thead>
           <tbody>
-            {tareas.map((tarea) => (
-              <tr key={tarea.id}>
-                <td>{tarea.titulo}</td>
-                <td>{tarea.descripcion}</td>
-                <td>{tarea.cuadrilla_nombre}</td>
-                <td>{tarea.estado}</td>
-                <td>
-                  <button
-                    className="btn btn-navegacion"
-                    onClick={() => handleEditarTarea(tarea)}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className="btn btn-navegacion ms-2"
-                    onClick={() => handleEliminarTarea(tarea.id)}
-                  >
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {tareas.map((tarea) => {
+              const cuadrilla = cuadrillas.find(
+                (cuadrilla) => cuadrilla.id === tarea.cuadrilla
+              );
+              return (
+                <tr key={tarea.id}>
+                  <td>{tarea.titulo}</td>
+                  <td>{tarea.descripcion}</td>
+                  <td>
+                    {cuadrilla ? cuadrilla.nombre : "Cuadrilla no encontrada"}
+                  </td>
+                  <td>{tarea.estado}</td>
+                  <td>
+                    <button
+                      className="btn btn-navegacion"
+                      onClick={() => handleEditarTarea(tarea)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="btn btn-navegacion ms-2"
+                      onClick={() => handleEliminarTarea(tarea.id)}
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

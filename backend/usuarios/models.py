@@ -80,13 +80,13 @@ class Cuadrillas(models.Model):
 
 
 class Tareas(models.Model):
-    incidencia = models.ForeignKey(Incidencias, on_delete=models.CASCADE, verbose_name="Incidencia")
     cuadrilla = models.ForeignKey(Cuadrillas, on_delete=models.CASCADE, verbose_name="Cuadrilla")
     titulo = models.CharField(max_length=100, verbose_name="Nombre")
     descripcion = models.TextField(verbose_name="Descripción")
     estado = models.CharField(max_length=100, default='Sin iniciar', verbose_name="Estado")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de Creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de Actualización")
+    incidencia = models.CharField(max_length=200,verbose_name="id incidencia")
     
     class Meta:
         verbose_name = 'Tarea'

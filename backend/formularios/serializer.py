@@ -12,3 +12,4 @@ class FormularioSerializer(serializers.Serializer):
     imagen_url = serializers.URLField()
     run = serializers.CharField(max_length=10)
     correo = serializers.EmailField()
+    
