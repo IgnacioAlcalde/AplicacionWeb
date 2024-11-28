@@ -29,9 +29,12 @@ Este proyecto combina **React** para el frontend y **Django** como backend. Util
 
 #### **Backend - Django**
 
-1. Abre una consola y dirígete a la carpeta `backend`
-2. Corre el servidor de Django con el comando:
-
+1. Crear una base de datos en postgreSQL
+2. Editar el archivo settings.py en "DATABASES" agregar los datos faltantes, con los correspondientes de su base de datos
+3. Abre una consola y dirígete a la carpeta `backend`
+4. Corre el servidor de Django con el comando:
+   - python manage.py makemigrations
+   - python manage.py migrate 
    - python manage.py runserver
 
-3. Puedes acceder al backend desde el enlace que aparece en la consola (por defecto: `http://127.0.0.1:8000/`).
+5. Puedes acceder al backend desde el enlace que aparece en la consola (por defecto: `http://127.0.0.1:8000/`).
