@@ -69,7 +69,7 @@ export default function CargaMasiva() {
                                         onChange={handleFileChange}
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-success">Importar</button>
+                                <button type="submit" className="btn btn-navegacion">Importar</button>
                                 {message && <div className="mt-2 alert alert-info">{message}</div>}
                             </form>
                         </div>
@@ -79,7 +79,7 @@ export default function CargaMasiva() {
                     <div className="card">
                         <div className="card-header">Exportar Usuarios</div>
                         <div className="card-body">
-                            <button type="button" className="btn btn-success">Descargar Lista de Usuarios</button>
+                            <button type="button" className="btn btn-navegacion">Descargar Lista de Usuarios</button>
                         </div>
                     </div>
                 </div>
