@@ -47,25 +47,47 @@ def login(request):
     data = request.data  # Obtiene los datos enviados en el cuerpo de la solicitud
     correo = data.get('correo')
     contraseña = data.get('contraseña')
+    run = data.get('run')
+    if correo:
 
-    try:
-        # Buscar el usuario por correo
-        usuario = Usuario.objects.get(correo=correo)
+        try:
+            # Buscar el usuario por correo
+            usuario = Usuario.objects.get(correo=correo)
 
-        # Verificar si la contraseña coincide (texto plano en tu caso)
-        if usuario.contraseña == contraseña:  # Cambia 'clave' si tu modelo tiene un campo distinto para contraseña
-            # Retorna éxito y rol del usuario
-            return JsonResponse({
-                'success': True,
-                'rol': usuario.rol,  # Ajusta si tu relación de rol es distinta
-                'redirect_url': obtener_url_por_rol(usuario.rol)  # Define la URL de redirección según el rol
-            })
+            # Verificar si la contraseña coincide (texto plano en tu caso)
+            if usuario.contraseña == contraseña:  # Cambia 'clave' si tu modelo tiene un campo distinto para contraseña
+                # Retorna éxito y rol del usuario
+                return JsonResponse({
+                    'success': True,
+                    'rol': usuario.rol,  # Ajusta si tu relación de rol es distinta
+                    'redirect_url': obtener_url_por_rol(usuario.rol)  # Define la URL de redirección según el rol
+                })
 
-        # Si la contraseña no coincide
-        return JsonResponse({'success': False, 'error': 'Contraseña incorrecta'}, status=401)
+            # Si la contraseña no coincide
+            return JsonResponse({'success': False, 'error': 'Contraseña incorrecta'}, status=401)
 
-    except Usuario.DoesNotExist:
-        return JsonResponse({'success': False, 'error': 'Usuario no encontrado'}, status=404)
+        except Usuario.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Usuario no encontrado'}, status=404)
+    if run:
+        try:
+            # Buscar el usuario por correo
+            usuario = Usuario.objects.get(run=run)
+
+            # Verificar si la contraseña coincide (texto plano en tu caso)
+            if usuario.contraseña == contraseña:  # Cambia 'clave' si tu modelo tiene un campo distinto para contraseña
+                # Retorna éxito y rol del usuario
+                return JsonResponse({
+                    'success': True,
+                    'rol': usuario.rol,  # Ajusta si tu relación de rol es distinta
+                    'redirect_url': obtener_url_por_rol(usuario.rol)  # Define la URL de redirección según el rol
+                })
+
+            # Si la contraseña no coincide
+            return JsonResponse({'success': False, 'error': 'Contraseña incorrecta'}, status=401)
+
+        except Usuario.DoesNotExist:
+            return JsonResponse({'success': False, 'error': 'Usuario no encontrado'}, status=404)
+
 
 
 def obtener_url_por_rol(rol_nombre):
