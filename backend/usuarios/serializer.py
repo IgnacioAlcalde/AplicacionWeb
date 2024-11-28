@@ -65,9 +65,6 @@ class CuadrillasSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TareasSerializer(serializers.ModelSerializer):
-    incidencia_titulo = serializers.CharField(source='incidencia.titulo', read_only=True)  # Campo adicional para mostrar el título de la incidencia
-    cuadrilla_nombre = serializers.CharField(source='cuadrilla.nombre', read_only=True)  # Campo adicional para mostrar el nombre de la cuadrilla
-
     class Meta:
         model = Tareas
         fields = '__all__'

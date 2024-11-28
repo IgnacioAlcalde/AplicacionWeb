@@ -56,7 +56,8 @@ class FormularioAPI(APIView):
                 "estado":estado,
                 "imagen_url": full_url,
                 "run": run,
-                "correo": correo
+                "correo": correo,
+                "listaTareas": []
             }
             MONGO_DB['formularios'].insert_one(data)
             return Response({"message": "Formulario agregado correctamente", "file_url": full_url}, status=status.HTTP_201_CREATED)

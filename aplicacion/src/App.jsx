@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // Inicio de sesion
 import IniciarSesionCorreo from "./paginas/inicio_sesion/iniciar_sesion_correo.jsx";
 import IniciarSesionRut from "./paginas/inicio_sesion/iniciar_sesion_rut.jsx";
@@ -12,8 +12,8 @@ import InicioMunicipalidad from "./componentes/director_municipalidad/inicio.jsx
 import CrearUsuarios from "./componentes/director_municipalidad/crear_usuarios.jsx";
 import CrearRol from "./componentes/director_municipalidad/crear_rol.jsx";
 import EditarUsuario from "./componentes/director_municipalidad/editar_usuario.jsx";
-import ListaUsuariosMunicipalidad from './componentes/director_municipalidad/lista_usuarios.jsx';
-import CargaMasiva from './componentes/director_municipalidad/carga_masiva.jsx';
+import ListaUsuariosMunicipalidad from "./componentes/director_municipalidad/lista_usuarios.jsx";
+import CargaMasiva from "./componentes/director_municipalidad/carga_masiva.jsx";
 // Componentes Director de obra
 import DirectorObra from "./paginas/inicios/director_obras.jsx";
 import InicioObras from "./componentes/director_obra/inicio.jsx";
@@ -31,9 +31,9 @@ import TareasCuadrillas from "./componentes/cuadrilla/tareas/tareas.jsx";
 import DetallesTareasCuadrillas from "./componentes/cuadrilla/tareas/detalles.jsx";
 //General
 import ListaIncidencias from "./componentes/general/listado_incidencias.jsx";
-import EditarIncidencias from "./componentes/general/editar_incidencias.jsx"
-import TareasIncidencias from "./componentes/general/tareas_incidencias.jsx"
-import GenerarTIcket from "./componentes/general/generar_ticket.jsx"
+import EditarIncidencias from "./componentes/general/editar_incidencias.jsx";
+import TareasIncidencias from "./componentes/general/tareas_incidencias.jsx";
+import GenerarTIcket from "./componentes/general/generar_ticket.jsx";
 //---------------------------------------------------------------------------------------------
 function Aplicacion() {
   return (
@@ -48,25 +48,43 @@ function Aplicacion() {
             element={<RecuperacionContraseña />}
           />
           {/* Enrutamiento director municipalidad */}
-          <Route path="director-municipalidad" element={<DirectorMunicipalidad />}>
+          <Route
+            path="director-municipalidad"
+            element={<DirectorMunicipalidad />}
+          >
             <Route path="inicio" element={<InicioMunicipalidad />} />
             <Route path="crear-usuarios" element={<CrearUsuarios />} />
             <Route path="crear-rol" element={<CrearRol />} />
-            <Route path='lista-usuarios' element={<ListaUsuariosMunicipalidad/>}/>
-            <Route path='editar-usuario/:id' element={<EditarUsuario/>}/>
-            <Route path='carga-masiva' element={<CargaMasiva/>}/>
+            <Route
+              path="lista-usuarios"
+              element={<ListaUsuariosMunicipalidad />}
+            />
+            <Route path="editar-usuario/:id" element={<EditarUsuario />} />
+            <Route path="carga-masiva" element={<CargaMasiva />} />
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
-            <Route path="editar-incidencias/:_id" element={<EditarIncidencias/>} />
-            <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />
+            <Route
+              path="editar-incidencias/:_id"
+              element={<EditarIncidencias />}
+            />
+            <Route
+              path="tareas-incidencias/:_id"
+              element={<TareasIncidencias />}
+            />
           </Route>
           {/* Enrutamiento director de obras */}
           <Route path="director-obra" element={<DirectorObra />}>
             <Route path="inicio" element={<InicioObras />} />
             <Route path="listado-incidencias" element={<ListaIncidencias />} />
-            <Route path="editar-incidencias/:_id" element={<EditarIncidencias/>} />
+            <Route
+              path="editar-incidencias/:_id"
+              element={<EditarIncidencias />}
+            />
             <Route path="crear-cuadrillas" element={<CrearCuadrillas />} />
             <Route path="cuadrilla/:id" element={<AsignarCuadrilla />} />
-            <Route path="tareas-incidencias/:id" element={<TareasIncidencias/>} />
+            <Route
+              path="tareas-incidencias/:_id"
+              element={<TareasIncidencias />}
+            />
           </Route>
           {/* Enrutamiento gestor territorial */}
           <Route path="gestor-territorial" element={<GestorTerritorial />}>
@@ -74,13 +92,13 @@ function Aplicacion() {
             <Route path="crear-formularios" element={<CrearFormularios />} />
           </Route>
           {/* Enrutamiento cuadrillas */}
-          <Route path='cuadrilla' element={<Cuadrilla/>}>
-              <Route path="inicio" element={<InicioCuadrilla/>} />
-              <Route path='generar-ticket' element={<GenerarTIcket/>}/>
-              <Route path='incidencias' element={<IncidenciasCuadrillas/>}/>
-              <Route path='tareas' element={<TareasCuadrillas/>}/>
-              <Route path='detalles' element={<DetallesTareasCuadrillas/>}/>
-            </Route>
+          <Route path="cuadrilla" element={<Cuadrilla />}>
+            <Route path="inicio" element={<InicioCuadrilla />} />
+            <Route path="generar-ticket" element={<GenerarTIcket />} />
+            <Route path="incidencias" element={<IncidenciasCuadrillas />} />
+            <Route path="tareas" element={<TareasCuadrillas />} />
+            <Route path="detalles" element={<DetallesTareasCuadrillas />} />
+          </Route>
         </Routes>
       </Router>
     </div>

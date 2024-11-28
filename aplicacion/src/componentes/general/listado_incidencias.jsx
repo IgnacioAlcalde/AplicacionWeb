@@ -24,9 +24,9 @@ export default function listado_incidencias() {
     console.log(newUrl);
     navegar(`/${basePath}/editar-incidencias/${_id}`);
   };
-  const tareasIncidencia = (id) => {
+  const tareasIncidencia = (_id) => {
     const basePath = window.location.pathname.split("/")[1];
-    navegar(`/${basePath}/tareas-incidencias/${id}`);
+    navegar(`/${basePath}/tareas-incidencias/${_id}`);
   };
 
   // Cargar las incidencias desde el backend
@@ -153,7 +153,7 @@ export default function listado_incidencias() {
                 </button>
                 <button
                   className="btn btn-navegacion mt-2"
-                  onClick={() => tareasIncidencia(proyecto.id)}
+                  onClick={() => tareasIncidencia(proyecto._id)}
                 >
                   Tareas
                 </button>
