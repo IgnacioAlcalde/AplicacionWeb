@@ -28,16 +28,10 @@ import Cuadrilla from "./paginas/Dashboards/cuadrilla.jsx";
 import InicioCuadrilla from "./componentes/cuadrilla/inicio.jsx";
 //General
 import ListaIncidencias from "./componentes/general/listado_incidencias.jsx";
-<<<<<<< HEAD
 import EditarIncidencias from "./componentes/general/editar_incidencias.jsx"
 import TareasIncidencias from "./componentes/general/tareas_incidencias.jsx"
 import GenerarTIcket from "./componentes/general/generar_ticket.jsx"
 import VerIncidencias from "./componentes/general/ver_incidencias.jsx"
-=======
-import EditarIncidencias from "./componentes/general/editar_incidencias.jsx";
-import TareasIncidencias from "./componentes/general/tareas_incidencias.jsx";
-import GenerarTIcket from "./componentes/general/generar_ticket.jsx";
->>>>>>> Francisco
 //---------------------------------------------------------------------------------------------
 function Aplicacion() {
   return (
