@@ -10,7 +10,7 @@ VALUES
 
 
 INSERT INTO usuarios_rol
-(id, rol)
+(id, nombre)
 VALUES
 (1, 'Administrador'),
 (2, 'Director municipalidad'),
