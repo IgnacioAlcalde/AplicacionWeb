@@ -36,5 +36,5 @@ Este proyecto combina **React** para el frontend y **Django** como backend. Util
    - python manage.py makemigrations
    - python manage.py migrate 
    - python manage.py runserver
-
-5. Puedes acceder al backend desde el enlace que aparece en la consola (por defecto: `http://127.0.0.1:8000/`).
+5. Insertar los datos de "DatosUsuarios.sql" en su base de datos para tener los usuarios iniciales
+6. Puedes acceder al backend desde el enlace que aparece en la consola (por defecto: `http://127.0.0.1:8000/`).
