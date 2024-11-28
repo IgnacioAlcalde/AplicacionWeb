@@ -11,7 +11,7 @@ export default function Gestorterritorial() {
     <div className="Inicio">
       <div className="navbar">
         <img src={logo_autonoma} alt="logo" className="logo_autonoma" />
-        <h1>UrbanSenso</h1>
+        <h1>Urban Sensor</h1>
         <button onClick={handleNavigate} className="Logout">Cerrar Sesión</button>
       </div>
       

@@ -63,7 +63,7 @@ export default function IniciarSesionCorreo() {
         <div>
             <div className="navbar">
                 <img src={logo_autonoma} alt="logo" className='logo_autonoma' />
-                <h1>UrbanSenso</h1>
+                <h1>Urban Sensor</h1>
                 <button onClick={sesionRun} className="Logout">Iniciar sesión con Rut</button>
             </div>
             <div className="caja">
